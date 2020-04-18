@@ -26,7 +26,7 @@
                                         <tbody>
                                         <?php $no =1; 
                                        
-                                        foreach($db->tampil_pengantar_skck() as $data) {
+                                        foreach($db->tampil_pengantar_khitanan() as $data) {
                                             if($data != null){
                                             ?>
                                             <tr>
