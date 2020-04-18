@@ -53,7 +53,7 @@
             }
             return $hasil;
         }
-        function tampil_pengantar_khitanan(){
+        function tampil_pengantar_hajatan(){
             $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_hajatan
             INNER JOIN tbl_data ON tbl_data.id_data = tbl_hajatan.id_data");
 
@@ -87,7 +87,7 @@
 
             return $simpan;
         }
-        function simpan_pengantar_khitanan($id_data,$keperluan,$keterangan,$tanggal){
+        function simpan_pengantar_hajatan($id_data,$keperluan,$keterangan,$tanggal){
             $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_hajatan (
                                     id_data,keperluan,keterangan,masa_berlaku
                                     ) values (

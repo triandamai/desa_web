@@ -48,8 +48,14 @@ $menus = array(
             ),
             3  => array(
                 "id"=> 1,
-                "name" => "PENGANTAR IJIN KHITANAN",
-                "link" => "http://localhost/pd/ui/index.php?page=index&&module=pengantar_khitanan",
+                "name" => "PENGANTAR IJIN HAJATAN",
+                "link" => "http://localhost/pd/ui/index.php?page=index&&module=pengantar_hajatan",
+                "child" =>"",
+            ),
+            4  => array(
+                "id"=> 1,
+                "name" => "PENGANTAR IJIN KERAMAIAN",
+                "link" => "http://localhost/pd/ui/index.php?page=index&&module=pengantar_keramaian",
                 "child" =>"",
             )
         ),
