@@ -3,8 +3,8 @@
     include '../config/koneksi.php';
     include '../config/function.php';
     $base_url = 'http://localhost/pd/';
-    $base_url_images = 'http://localhost/pd/ui/images/';
-    $base_url_module = $base_url.'ui/index.php?page='.$_GET['page'].'&&module='.$_GET['module'];
+    $base_url_images = $base_url.'/ui/images/';
+   
     ?>
         <!DOCTYPE html>
         <html dir="ltr" lang="en">

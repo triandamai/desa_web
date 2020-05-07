@@ -75,28 +75,19 @@
 	        return $simpan;
         }
         function simpan_suket_untuk_nikah($id_data,$bin_binti,$status,$terdahulu){
-            $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_nikah (
-                                    id_data,bin_binti,status,pasangan_terdahulu
-                                    ) values (
-                                        $id_data,
+            $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_nikah (id_data,bin_binti,status,pasangan_terdahulu) values ($id_data,
                                         '$bin_binti',
                                         '$status',
-                                        '$terdahulu'
-                                        )"
-                                );
+                                        '$terdahulu')");
 
             return $simpan;
         }
         function simpan_pengantar_hajatan($id_data,$keperluan,$keterangan,$tanggal){
-            $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_hajatan (
-                                    id_data,keperluan,keterangan,masa_berlaku
-                                    ) values (
+            $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_hajatan (id_data,keperluan,keterangan,masa_berlaku) values (
                                         $id_data,
                                         '$keperluan',
                                         '$keterangan',
-                                        '$tanggal'
-                                        )"
-                                );
+                                        '$tanggal')");
 
             return $simpan;
         }
