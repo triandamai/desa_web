@@ -25,9 +25,15 @@
             }
             return $hasil;
         }
-        function tampil_pengantar_skck(){
+        function tampil_pengantar_skck($id){
+            $data = null;
+            if($id != null){
+            $data = mysqli_query($this->koneksi,"SELECT * from tbl_skck 
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_skck.id_kk WHERE tbl_skck.id_skck=$id");
+            }else{
             $data = mysqli_query($this->koneksi,"SELECT * from tbl_skck 
             INNER JOIN tbl_data ON tbl_data.id_data = tbl_skck.id_kk");
+            }
              $hasil[] = null;
             while($d = mysqli_fetch_array($data)){
                 $hasil[] = $d;
@@ -63,6 +69,16 @@
             }
             return $hasil;
         }
+        function tampil_suket_pindah_penduduk(){
+            $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_pindah
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_pindah.id_data");
+
+            $hasil[] = null;
+            while($d = mysqli_fetch_array($data)){
+                $hasil[] = $d;
+            }
+            return $hasil;
+        }
 
         function simpan_skck($nik){
             $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_skck (id_kk) values ($nik)");
@@ -88,6 +104,19 @@
                                         '$keperluan',
                                         '$keterangan',
                                         '$tanggal')");
+
+            return $simpan;
+        }
+        function simpan_suket_pindah_penduduk($id_data,$kepkel,$asal,$tuju,$jml){
+            $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_pindah (id_data,
+            nama_kepkel,
+            alamat_asal,
+            alamat_tuju,
+            jumlah_anggota) values (
+                                        $id_data,
+                                        '$kepkel',
+                                        '$asal',
+                                        '$tuju','$jml')");
 
             return $simpan;
         }

@@ -49,7 +49,9 @@
                 }else{
                     $base_url_module = $base_url.'ui/index.php?page='.$_GET['page'].'&&module='.$_GET['module'];
                     $uri = $_GET['module'];
-                    include $uri.'/'.$uri.'.php';
+                    
+                        include $uri.'/'.$uri.'.php';
+                  
                 }?>
         <footer class="footer text-center text-muted"> 
         All Rights Reserved by Adminmart. Designed and Developed by <a href="#">WrapPixel</a>.

@@ -11,6 +11,9 @@
 
     <?php
     include './css/getcss.php';
+    if(isset($_GET['ref'])){
+        header("Location:".$_GET['module'].".php?id=".$_GET['id']);
+    }else{
     if(!isset($_GET['page']) || $_GET['page'] == ''){
         include 'dashboard.php';
     }else{
@@ -22,6 +25,7 @@
         }
         
     }
+}
     ?>
     
     <?php
