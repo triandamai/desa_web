@@ -33,13 +33,10 @@
 <td>Keterangan</td>
 </tr>
 
-<?php
-include"koneksi.php";
-include"tglindo.php";
-$sql = mysqli_query($koneksi,"SELECT * FROM tbl_sktm ORDER BY id_sktm");
-$no=1;
-while($row = mysqli_fetch_array($sql)){
-?>
+<?php 
+    $no =1; 
+    foreach($db->tampil_pengantar_skck(null) as $data) {
+        if($data != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>
 <td align='left'> <?php echo $row['nama']; ?></td>
@@ -53,7 +50,7 @@ while($row = mysqli_fetch_array($sql)){
 <td align='left'> <?php echo $row['keterangan']; ?>  </td>
 </tr>
 <?php
-$no++;
+$no++;}
 }
 ?>
 </table>
