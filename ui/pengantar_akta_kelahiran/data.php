@@ -26,7 +26,7 @@
                                         <tbody>
                                         <?php $no =1; 
                                        
-                                        foreach($db->tampil_pengantar_hajatan() as $data) {
+                                        foreach($db->tampil_akta(null) as $data) {
                                             if($data != null){
                                             ?>
                                             <tr>

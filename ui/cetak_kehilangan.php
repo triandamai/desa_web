@@ -35,7 +35,7 @@
 
 <?php 
     $no =1; 
-    foreach($db->tampil_pengantar_skck(null) as $data) {
+    foreach($db->tampil_kehilangan(null) as $data) {
         if($data != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>

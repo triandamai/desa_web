@@ -35,57 +35,59 @@ $menus = array(
                 "child" =>"",
             ),1  => array(
                 "id"=> 1,
-                "name" => "KETERANGAN BELUM PERNAH MENIKAH",
+                "name" => "BELUM PERNAH MENIKAH",
                 "link" => $base_url."/ui/index.php?page=index&&module=suket_belum_pernah_menikah",
                 "child" =>"",
             ),2  => array(
                 "id"=> 1,
-                "name" => "KETERANGAN UNTUK MENIKAH",
+                "name" => "UNTUK MENIKAH",
                 "link" => $base_url."/ui/index.php?page=index&&module=suket_untuk_menikah",
                 "child" =>"",
             ), 3  => array(
                 "id"=> 1,
-                "name" => "PENGANTAR IJIN HAJATAN",
+                "name" => "IJIN HAJATAN",
                 "link" => $base_url."/ui/index.php?page=index&&module=pengantar_hajatan",
                 "child" =>"",
             ),4  => array(
                 "id"=> 1,
-                "name" => "PENGANTAR IJIN KERAMAIAN",
+                "name" => "IJIN KERAMAIAN",
                 "link" => $base_url."/ui/index.php?page=index&&module=pengantar_keramaian",
                 "child" =>"",
-            ), 5  => array(
+             ), 
+            //5  => array(
+            //     "id"=> 1,
+            //     "name" => "KETERANGAN TIDAK MAMPU",
+            //     "link" => $base_url."/ui/index.php?page=index&&module=keterangan_tidak_mampu",
+            //     "child" =>"",
+            // ),
+             6  => array(
                 "id"=> 1,
-                "name" => "KETERANGAN TIDAK MAMPU",
-                "link" => $base_url."/ui/index.php?page=index&&module=keterangan_tidak_mampu",
-                "child" =>"",
-            ), 6  => array(
-                "id"=> 1,
-                "name" => "SURAT SKTM SEKOLAH",
+                "name" => "SKTM SEKOLAH",
                 "link" => $base_url."/ui/index.php?page=index&&module=surat_sktm_sekolah",
                 "child" =>"",
             ), 7  => array(
                 "id"=> 1,
-                "name" => "SURAT KETERANGAN DOMISILI",
+                "name" => "KETERANGAN DOMISILI",
                 "link" => $base_url."/ui/index.php?page=index&&module=keterangan_domisili",
                 "child" =>"",
             ), 8  => array(
                 "id"=> 1,
-                "name" => "SURAT KETERANGAN USAHA",
+                "name" => "KETERANGAN USAHA",
                 "link" =>$base_url."/ui/index.php?page=index&&module=keterangan_usaha",
                 "child" =>"",
             ), 9  => array(
                 "id"=> 1,
-                "name" => "SURAT KETERANGAN KEHILANGAN",
+                "name" => "KETERANGAN KEHILANGAN",
                 "link" => $base_url."/ui/index.php?page=index&&module=keterangan_kehilangan",
                 "child" =>"",
             ), 10  => array(
                 "id"=> 1,
-                "name" => "SURAT PERMOHONAN KK",
+                "name" => "PERMOHONAN KK",
                 "link" => $base_url."/ui/index.php?page=index&&module=permohonan_kk",
                 "child" =>"",
             ), 11  => array(
                 "id"=> 1,
-                "name" => "SURAT PENGANTAR AKTA KELAHIRAN",
+                "name" => "PENGANTAR AKTA KELAHIRAN",
                 "link" => $base_url."/ui/index.php?page=index&&module=pengantar_akta_kelahiran",
                 "child" =>"",
             ), 12  => array(
@@ -95,7 +97,7 @@ $menus = array(
                 "child" =>"",
             ), 13  => array(
                 "id"=> 1,
-                "name" => "SURAT KETERANGAN PINDAH PENDUDUK",
+                "name" => "KETERANGAN PINDAH PENDUDUK",
                 "link" => $base_url."/ui/index.php?page=index&&module=keterangan_pindah_penduduk",
                 "child" =>"",
             )
@@ -128,67 +130,67 @@ $menus = array(
             3 => array(
                 "id"=> 1,
                 "name" => "PENGANTAR IJIN HAJATAN",
-                "link" => $base_url.'/ui/cetak_hajatan.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_hajatan.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
             4 => array(
                 "id"=> 1,
                 "name" => "PENGANTAR IJIN KERAMAIAN",
-                "link" => $base_url.'/ui/cetak_keramaian.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_keramaian.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
-            5 => array(
-                "id"=> 1,
-                "name" => "KETERANGAN TIDAK MAMPU",
-                "link" => $base_url.'/ui/cetak_tidakmampu.php?module=cetak_pengantar_skck&&ref=yes',
-                "child" =>"",
-            ),
+            // 5 => array(
+            //     "id"=> 1,
+            //     "name" => "KETERANGAN TIDAK MAMPU",
+            //     "link" => $base_url.'/ui/cetak_tidakmampu.php?module=cetak&&ref=yes',
+            //     "child" =>"",
+            // ),
             6 => array(
                 "id"=> 1,
                 "name" => "SKTM SEKOLAH",
-                "link" => $base_url.'/ui/cetak_sktm_sekolah.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_sktm_sekolah.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
             7 => array(
                 "id"=> 1,
                 "name" => "KETERANGAN DOMISILI",
-                "link" => $base_url.'/ui/cetak_domisili.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_domisili.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
             8 => array(
                 "id"=> 1,
                 "name" => "KETERANGAN USAHA",
-                "link" =>$base_url.'/ui/cetak_usaha.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" =>$base_url.'/ui/cetak_usaha.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
             9 => array(
                 "id"=> 1,
                 "name" => "KETERANGAN KEHILANGAN",
-                "link" => $base_url.'/ui/cetak_kehilangan.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_kehilangan.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
             10 => array(
                 "id"=> 1,
                 "name" => "PERMOHONAN KK",
-                "link" => $base_url.'/ui/cetak_kk.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_kk.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
             11 => array(
                 "id"=> 1,
                 "name" => "PENGANTAR AKTA KELAHIRAN",
-                "link" => $base_url.'/ui/cetak_akta.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_akta.php?module=cetak&&ref=yes',
                 "child" =>"",
             ), 
             12 => array(
                 "id"=> 1,
                 "name" => "KEMATIAN",
-                "link" => $base_url.'/ui/cetak_kematian.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_kematian.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
             13 => array(
                 "id"=> 1,
                 "name" => "KETERANGAN PINDAH PENDUDUK",
-                "link" => $base_url.'/ui/cetak_pindah.php?module=cetak_pengantar_skck&&ref=yes',
+                "link" => $base_url.'/ui/cetak_pindah.php?module=cetak&&ref=yes',
                 "child" =>"",
             )
             

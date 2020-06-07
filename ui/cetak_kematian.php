@@ -34,7 +34,7 @@
 
 <?php 
     $no =1; 
-    foreach($db->tampil_suket_belum_menikah(null) as $data) {
+    foreach($db->tampil_kematian(null) as $data) {
         if($data != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>

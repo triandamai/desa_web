@@ -26,7 +26,7 @@
                                         <tbody>
                                         <?php $no =1; 
                                        
-                                        foreach($db->tampil_suket_pindah_penduduk() as $data) {
+                                        foreach($db->tampil_suket_pindah_penduduk(null) as $data) {
                                             if($data != null){
                                             ?>
                                             <tr>

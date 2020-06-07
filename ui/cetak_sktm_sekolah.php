@@ -36,13 +36,10 @@
 <td>Jumlah Tanggungan</td>
 </tr>
 
-<?php
-include"koneksi.php";
-include"tglindo.php";
-$sql = mysqli_query($koneksi,"SELECT * FROM tbl_sktm_sekolah ORDER BY id_sktm_sekolah");
-$no=1;
-while($row = mysqli_fetch_array($sql)){
-?>
+<?php 
+    $no =1; 
+    foreach($db->tampil_sktm_sekolah(null) as $data) {
+        if($data != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>
 <td align='left'> <?php echo $row['nama']; ?></td>
@@ -59,7 +56,7 @@ while($row = mysqli_fetch_array($sql)){
 <td align='center'> <?php echo $row['jumlah_tanggungan']; ?>  </td>
 </tr>
 <?php
-$no++;
+$no++;}
 }
 ?>
 </table>
