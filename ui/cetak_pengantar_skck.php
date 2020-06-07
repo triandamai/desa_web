@@ -1,5 +1,4 @@
 <?php 
-    include '../config/koneksi.php';
     include '../config/function.php';
     $db = new database();
 ?>

@@ -1,6 +1,5 @@
 
 <?php 
-    include '../config/koneksi.php';
     include '../config/function.php';
     $base_url = 'http://localhost/pd/';
     $base_url_images = $base_url.'/ui/images/';

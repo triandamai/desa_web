@@ -32,7 +32,7 @@
             </thead>
             <tbody>
             <?php $no =1; 
-            foreach($db->tampil_penduduk() as $data) {
+            foreach($db->tampil_penduduk(null) as $data) {
                 if($data != null){
                 ?>
                 <tr>

@@ -29,7 +29,7 @@
                                         </thead>
                                         <tbody>
                                         <?php $no =1; 
-                                        foreach($db->tampil_suket_untuk_menikah() as $data) {
+                                        foreach($db->tampil_suket_untuk_menikah(null) as $data) {
                                             if($data != null){
                                             ?>
                                             <tr>
@@ -46,13 +46,9 @@
 	                                            <td><?php echo $data['bin_binti'] ?></td>
 	                                            <td><?php echo $data['status'] ?></td>
                                                 <td><?php echo $data['pasangan_terdahulu'] ?></td>
-                                                <td><a href="?module=edit_menikah&id=<?php echo $data['id_menikah']; ?>">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>  
-                                                    <a href="hapus_menikah.php?id=<?php echo $data['id_menikah']; ?>">
-                                                        <span class="glyphicon glyphicon-trash"></span></a>  
-                                                    <a href="print_menikah.php?id=<?php echo $data['id_menikah']; ?>" target="_blank"
-                                                    ><span class="glyphicon glyphicon-print"></span>
+                                                <td>    
+                                                <a href="<?= $base_url.'/ui/cetak_untukmenikahsurat.php?module=cetak_pengantar_skck&&ref=yes&&id='.$data['id_nikah']; ?>">
+                                                    Cetak
                                                     </a>
                                                 </td>
 	

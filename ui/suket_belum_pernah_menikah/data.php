@@ -1,5 +1,6 @@
 <?php 
         $db = new database();
+      
 ?>
 <div class="card-body">
                                 <h4 class="card-title">Multi-column ordering</h4>
@@ -24,7 +25,7 @@
                                         </thead>
                                         <tbody>
                                         <?php $no =1; 
-                                        foreach($db->tampil_suket_belum_menikah() as $data) {
+                                        foreach($db->tampil_suket_belum_menikah(null) as $data) {
                                             if($data != null){
                                             ?>
                                             <tr>
@@ -38,15 +39,9 @@
 	                                            <td><?php echo $data['pekerjaan'] ?></td>
 	                                            <td><?php echo $data['alamat'] ?></td>
 	                                            <td>
-                                                    <a href="?module=edit_belumpernahmenikah&id=<?php echo $data['id_belumpernahmenikah']; ?>">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>  
-                                                    <a href="hapus_belumpernahmenikah.php?id=<?php echo $data['id_belumpernahmenikah']; ?>">
-                                                        <span class="glyphicon glyphicon-trash"></span>
-                                                    </a>  
-                                                    <a href="print_belumpernahmenikah.php?id=<?php echo $data['id_belumpernahmenikah']; ?>" target="_blank">
-                                                        <span class="glyphicon glyphicon-print"></span>
-                                                    </a>
+                                                <a href="<?= $base_url.'/ui/cetak_belumpernahmenikahsurat.php?module=cetak&&ref=yes&&id='.$data['id_belum_nikah']; ?>">
+                                                    Cetak
+                                                </a>
                                                 </td>
                                             </tr>
                                             <?php

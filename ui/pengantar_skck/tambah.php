@@ -11,8 +11,7 @@
                 echo '<script>alert("Gagal Menambahkan ");</script>';
             }
         }
-       // echo json_encode($db->tampil_penduduk());
-?>
+      ?>
 <div class="card-body">
                                 <h4 class="card-title">Pilih Warga Untuk Diajukan Surat Pengantar SKCK</h4>
                                 
@@ -31,7 +30,7 @@
                                         </thead>
                                         <tbody>
                                         <?php $no =1; 
-                                        foreach($db->tampil_penduduk() as $data) {
+                                        foreach($db->tampil_penduduk(null) as $data) {
                                             if($data != null){
                                             ?>
                                             <tr>

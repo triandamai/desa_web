@@ -1,17 +1,33 @@
+<?php   
+      error_reporting(0);
+      session_start();
+       include 'config/function.php';
+        $db = new database();
+
+        if(isset($_POST['logout'])){
+            
+        
+               
+                $_SESSION["islogin"] = false;
+                echo '<script> location.replace("'.$base_url.'/login.php"); </script>';
+            
+        }
+?>
 <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md">
                 <div class="navbar-header" data-logobg="skin6">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
                             class="ti-menu ti-close"></i></a>
                     <div class="navbar-brand">
-                        <a href="index.html">
-                            <b class="logo-icon">
-                                <img src="<?php echo $base_url_images;?>logo-icon.png" alt="homepage" class="dark-logo" />
-                                <img src="<?php echo $base_url_images;?>logo-icon.png" alt="homepage" class="light-logo" />
+                        <a href="#">
+                            <b class="logo-icon" >
+                                <img style="width:10%; height:10%;" src="<?php echo $base_url_images;?>logo-icon.png" alt="homepage" class="dark-logo" />
+                                <img style="width:10%; height:10%;" src="<?php echo $base_url_images;?>logo-icon.png" alt="homepage" class="light-logo" />
                             </b>
                             <span class="logo-text">
-                                <img src="<?php echo $base_url_images;?>logo-text.png" alt="homepage" class="dark-logo" />
-                                <img src="<?php echo $base_url_images;?>logo-light-text.png" class="light-logo" alt="homepage" />
+                            Banyumas
+                                <!-- <img src="<?php echo $base_url_images;?>logo-text.png" alt="homepage" class="dark-logo" />
+                                <img src="<?php echo $base_url_images;?>logo-light-text.png" class="light-logo" alt="homepage" /> -->
                             </span>
                         </a>
                     </div>
@@ -39,14 +55,19 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
-                                        class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
+                                <span class="ml-2 d-none d-lg-inline-block"><span>Halo,</span> <span
+                                        class="text-dark">Admin</span> <i data-feather="chevron-down"
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                            <form method="POST" action="">
+                            <input type="hidden" value="keluar" name="logout"/>
+                                <button type="submit" class="dropdown-item">
+                                <i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
-                                    Logout</a>
+                                    Logout
+                                    </button>
+                                    </form>
                                 <div class="dropdown-divider"></div>
                             </div>
                         </li>
