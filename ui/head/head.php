@@ -25,7 +25,7 @@
                                 <img style="width:10%; height:10%;" src="<?php echo $base_url_images;?>logo-icon.png" alt="homepage" class="light-logo" />
                             </b>
                             <span class="logo-text">
-                            Banyumas
+                            Desa Lumbir
                                 <!-- <img src="<?php echo $base_url_images;?>logo-text.png" alt="homepage" class="dark-logo" />
                                 <img src="<?php echo $base_url_images;?>logo-light-text.png" class="light-logo" alt="homepage" /> -->
                             </span>
