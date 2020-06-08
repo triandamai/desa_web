@@ -28,25 +28,21 @@
 <td>kewarganegaraan</td>
 <td>Agama</td>
 <td>Pekerjaan</td>
-<td>Alamat</td>
-<td>Keperluan</td>
-<td>Keterangan</td>
+<td>Alamat Domisili</td>
 </tr>
 <?php 
     $no =1; 
-    foreach($db->tampil_domisili(null) as $data) {
-        if($data != null){?>
+    foreach($db->tampil_domisili(null) as $row) {
+        if($row != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>
 <td align='left'> <?php echo $row['nama']; ?></td>
 <td align='left'> <?php echo $row['nik']; ?> </td>
-<td align='left'><?php echo $row['tmp_lahir']; ?>/ <?php echo TanggalIndo($row['tgl_lahir']);?> </td>
+<td align='left'><?php echo $row['tmp_lahir']; ?>/ <?php echo $row['tgl_lahir'];?> </td>
 <td align='left'> <?php echo $row['kewarganegaraan']; ?>  </td>
 <td align='center'> <?php echo $row['agama']; ?>  </td>
 <td align='center'> <?php echo $row['pekerjaan']; ?>  </td>
-<td align='center'> <?php echo $row['alamat']; ?>  </td>
-<td align='left'> <?php echo $row['keperluan']; ?>  </td>
-<td align='left'> <?php echo $row['keterangan']; ?>  </td>
+<td align='center'> <?php echo $row['alamat_domisili']; ?>  </td>
 </tr>
 <?php
 $no++;}

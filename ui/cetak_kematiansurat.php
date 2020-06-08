@@ -1,3 +1,7 @@
+<?php 
+    include '../config/function.php';
+    $db = new database();
+?>
 <style type="text/css">
   @font-face {
     font-family: myFirstFont;
@@ -11,15 +15,14 @@
 <title>Print Data KEMATIAN</title>
 <body onLoad="window.print()">
 <?php
-error_reporting(0);
-session_start();
-include "koneksi.php"; 
-include "tglindo.php"; 
-$d = mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM tbl_kematian where id_kematian='$_GET[id]'"));
+
+
+foreach($db->tampil_kematian($_GET['id']) as $d) {
+    if($d != null){
 ?>
 <table border=0 width=100%>
 <tr>
-    <td align="center" rowspan='3' width='88px'><img src='../../../img/lambang_banyumas.png' width='85px'></td>
+    <td align="center" rowspan='3' width='88px'><img src='<?php echo $base_url_images;?>logo-icon.png' width='85px'></td>
 </tr> 
 <tr>
     <td align="center"><h3 style='margin-bottom:-5px' align=center>PEMERINTAH KABUPATEN BANYUMAS<br>
@@ -65,12 +68,12 @@ menerangkan bahwa :  </td>
 <tr>
 <td></td>
 <td>Tempat/ Tanggal Lahir</td>
-<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo TanggalIndo($d['tgl_lahir']);?></td>
+<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo $d['tgl_lahir'];?></td>
 </tr>
 <tr>
 <td></td>
 <td>Jenis Kelamin</td>
-<td>: <?php echo "$d[jenis_kelamin]";?></td>
+<td>: <?php echo "$d[jenis_kel]";?></td>
 </tr>
 <tr>
 <td></td>
@@ -102,17 +105,17 @@ menerangkan bahwa :  </td>
 <tr>
 <td></td>
 <td width="40%">Tanggal Meninggal</td>
-<td width="95%">: <?php echo TanggalIndo($d['tgl_meninggal']);?></td>
+<td width="95%">: <?php echo $d['tgl_mati'];?></td>
 </tr>
 <tr>
 <td></td>
 <td>Tempat Kematian</td>
-<td>: <?php echo "$d[tmp_kematian]";?></td>
+<td>: <?php echo "$d[tmp_mati]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Sebab Kematian</td>
-<td>: <?php echo "$d[sebab_kematian]";?></td>
+<td>: <?php echo "$d[sebab_mati]";?></td>
 </tr>
 </table>
 
@@ -155,4 +158,5 @@ menerangkan bahwa :  </td>
     </td>
   </tr>
 </table> 
+    <?php }} ?>
 </body>

@@ -1,3 +1,7 @@
+<?php 
+    include '../config/function.php';
+    $db = new database();
+?>
 <style type="text/css">
   @font-face {
     font-family: myFirstFont;
@@ -11,15 +15,14 @@
 <title>Print Data IJIN KERAMAIAN</title>
 <body onLoad="window.print()">
 <?php
-error_reporting(0);
-session_start();
-include "koneksi.php"; 
-include "tglindo.php"; 
-$d = mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM tbl_ijin_keramaian where id_ijin_keramaian='$_GET[id]'"));
+
+
+foreach($db->tampil_ijin_hiburan($_GET['id']) as $d) {
+    if($d != null){
 ?>
 <table border=0 width=100%>
 <tr>
-    <td align="center" rowspan='3' width='88px'><img src='../../../img/lambang_banyumas.png' width='85px'></td>
+    <td align="center" rowspan='3' width='88px'><img src='<?php echo $base_url_images;?>logo-icon.png' width='85px'></td>
 </tr> 
 <tr>
     <<td align="center"><h3 style='margin-bottom:-5px' align=center>PEMERINTAH DESA LUMBIR<br>
@@ -37,7 +40,7 @@ $d = mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM tbl_ijin_keramaian 
     <td align="center"><h3 style='margin-bottom:-5px' align=center><u>SURAT IJIN KERAMAIAN</u> </h3></td>
 </tr> 
 <tr>
-    <td align="center"><p>Nomor : 00<?php echo "$d[id_ijin_keramaian]"; ?>-DS-IX-2019</p></td>
+    <td align="center"><p>Nomor : 00<?php echo "$d[id_hiburan]"; ?>-DS-IX-2019</p></td>
 </tr> 
 </table>
 
@@ -65,7 +68,7 @@ menerangkan bahwa :  </td>
 <tr>
 <td></td>
 <td>Tempat/ Tanggal Lahir</td>
-<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo TanggalIndo($d['tgl_lahir']);?></td>
+<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo $d['tgl_lahir'];?></td>
 </tr>
 <tr>
 <td></td>
@@ -107,7 +110,7 @@ menerangkan bahwa :  </td>
 <tr>
 <td></td>
 <td>Tanggal Keramaian</td>
-<td>: <?php echo TanggalIndo($d['tgl_keramaian']);?></td>
+<td>: <?php echo$d['tgl_hiburan'];?></td>
 </tr>
 <tr>
 <td></td>
@@ -155,4 +158,5 @@ menerangkan bahwa :  </td>
     </td>
   </tr>
 </table> 
+    <?php }}?>
 </body>

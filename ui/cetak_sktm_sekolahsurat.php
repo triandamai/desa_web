@@ -1,3 +1,7 @@
+<?php 
+    include '../config/function.php';
+    $db = new database();
+?>
 <style type="text/css">
   @font-face {
     font-family: myFirstFont;
@@ -11,15 +15,14 @@
 <title>Print Data SKTM SEKOLAH</title>
 <body onLoad="window.print()">
 <?php
-error_reporting(0);
-session_start();
-include "koneksi.php"; 
-include "tglindo.php"; 
-$d = mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM tbl_sktm_sekolah where id_sktm_sekolah='$_GET[id]'"));
+
+
+foreach($db->tampil_sktm_sekolah($_GET['id']) as $d) {
+    if($d != null){
 ?>
 <table border=0 width=100%>
 <tr>
-    <td align="center" rowspan='3' width='88px'><img src='../../../img/lambang_banyumas.png' width='85px'></td>
+    <td align="center" rowspan='3' width='88px'><img src='<?php echo $base_url_images;?>logo-icon.png' width='85px'></td>
 </tr> 
 <tr>
   <td align="center"><h3 style='margin-bottom:-5px' align=center>PEMERINTAH DESA LUMBIR<br>
@@ -70,7 +73,7 @@ menerangkan dengan sesungguhnya bahwa :  </td>
 <tr>
 <td></td>
 <td>Tempat/ Tanggal Lahir</td>
-<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo TanggalIndo($d['tgl_lahir']);?></td>
+<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo $d['tgl_lahir'];?></td>
 </tr>
 <tr>
 <td></td>
@@ -80,7 +83,7 @@ menerangkan dengan sesungguhnya bahwa :  </td>
 <tr>
 <td></td>
 <td>Alamat Rumah</td>
-<td>: <?php echo "$d[alamat_rumah]";?></td>
+<td>: <?php echo "$d[alamat]";?></td>
 </tr>
 <tr>
 <td></td>
@@ -90,22 +93,22 @@ menerangkan dengan sesungguhnya bahwa :  </td>
 <tr>
 <td></td>
 <td>Alamat Orang Tua</td>
-<td>: <?php echo "$d[alamat_orang_tua]";?></td>
+<td>: <?php echo "$d[alamat_ortu]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Pekerjaan Orang Tua</td>
-<td>: <?php echo "$d[pekerjaan_orang_tua]";?></td>
+<td>: <?php echo "$d[pekerjaan_ortu]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Penghasilan Orang Tua</td>
-<td>: <?php echo "$d[penghasilan_orang_tua]";?></td>
+<td>: <?php echo "$d[penghasilan_ortu]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Jumlah Tanggungan</td>
-<td>: <?php echo "$d[jumlah_tanggungan]";?></td>
+<td>: <?php echo "$d[jumlah_tanggung]";?></td>
 </tr>
 </table>
 
@@ -141,4 +144,5 @@ menerangkan dengan sesungguhnya bahwa :  </td>
     </td>
   </tr>
 </table> 
+    <?php }} ?>
 </body>

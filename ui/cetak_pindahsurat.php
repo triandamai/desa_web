@@ -1,3 +1,7 @@
+<?php 
+    include '../config/function.php';
+    $db = new database();
+?>
 <style type="text/css">
   @font-face {
     font-family: myFirstFont;
@@ -11,15 +15,14 @@
 <title>Print Data pindah penduduk</title>
 <body onLoad="window.print()">
 <?php
-error_reporting(0);
-session_start();
-include "koneksi.php"; 
-include "tglindo.php"; 
-$d = mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM tbl_pindah_penduduk where id_pindah_penduduk='$_GET[id]'"));
+
+
+foreach($db->tampil_suket_pindah_penduduk($_GET['id']) as $d) {
+    if($d != null){
 ?>
 <table border=0 width=100%>
 <tr>
-    <td align="center" rowspan='3' width='88px'><img src='../../../img/lambang_banyumas.png' width='85px'></td>
+    <td align="center" rowspan='3' width='88px'><img src='<?php echo $base_url_images;?>logo-icon.png' width='85px'></td>
 </tr> 
 <tr>
     <<td align="center"><h3 style='margin-bottom:-5px' align=center>PEMERINTAH DESA LUMBIR<br>
@@ -37,7 +40,7 @@ $d = mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM tbl_pindah_penduduk
     <td align="center"><h3 style='margin-bottom:-5px' align=center><u>SURAT PENGANTAR PINDAH PENDUDUK</u> </h3></td>
 </tr> 
 <tr>
-    <td align="center"><p>Nomor : 00<?php echo "$d[id_pindah_penduduk]"; ?>-DS-IX-2019</p></td>
+    <td align="center"><p>Nomor : 00<?php echo "$d[id_pindah]"; ?>-DS-IX-2019</p></td>
 </tr> 
 </table>
 
@@ -65,27 +68,27 @@ menerangkan menerangkan pemohon pindah penduduk WNI dengan data sebagai berikut 
 <tr>
 <td></td>
 <td>Nomer Kartu Keluarga</td>
-<td>: <?php echo "$d[no_kk]";?></td>
+<td>: <?php echo "$d[nkk]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Nama Kepala Keluarga</td>
-<td>: <?php echo "$d[nama_kepala_keluarga]";?></td>
+<td>: <?php echo "$d[nama_kepkel]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Alamat Sekarang</td>
-<td>: <?php echo "$d[alamat_sekarang]";?></td>
+<td>: <?php echo "$d[alamat_asal]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Alamat Tujuan Pindah</td>
-<td>: <?php echo "$d[alamat_pindah]";?></td>
+<td>: <?php echo "$d[alamat_tuju]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Jumlah Keluarga Yang Pindah</td>
-<td>: <?php echo "$d[jml_anggota_pindah]";?></td>
+<td>: <?php echo "$d[jumlah_anggota]";?></td>
 </tr>
 </table>
 
@@ -134,4 +137,5 @@ menerangkan menerangkan pemohon pindah penduduk WNI dengan data sebagai berikut 
     </td>
   </tr>
 </table> 
+    <?php }} ?>
 </body>

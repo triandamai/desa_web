@@ -41,7 +41,7 @@
 <td align='center'> <?php echo $data['nama']; ?></td>
 <td align='center'> <?php echo $data['nik']; ?> </td>
 <td align='center'> <?php echo $data['jenis_kel']; ?> </td>
-<td align='center'> <?php echo $data['tmp_lahir']; ?>
+<td align='center'> <?php echo $data['tmp_lahir']; ?>/
  <?php echo $data['tgl_lahir'];?> </td>
 <td align='center'> <?php echo $data['kewarganegaraan']; ?>  </td>
 <td align='center'> <?php echo $data['agama']; ?>  </td>

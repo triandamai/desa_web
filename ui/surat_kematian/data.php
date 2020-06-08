@@ -42,12 +42,8 @@
 	                                            <td><?php echo $data['pekerjaan'] ?></td>
 	                                            <td><?php echo $data['alamat'] ?></td>
                                                 <td>
-                                                    <a href="?module=edit_skck&id=<?php echo $data['id_skck']; ?>">
-                                                    <span class="glyphicon glyphicon-pencil"></span></a>  
-                                                    <a href="hapus_skck.php?id=<?php echo $data['id_skck']; ?>">
-                                                    <span class="glyphicon glyphicon-trash"></span></a>  
-                                                    <a href="print_skck.php?id=<?php echo $data['id_skck']; ?>" target="_blank">
-                                                    <span class="glyphicon glyphicon-print"></span>
+                                                <a href="<?= $base_url.'/ui/cetak_kematiansurat.php?module=cetak&&ref=yes&&id='.$data['id_kematian']; ?>">
+                                                    Cetak
                                                     </a>
                                                 </td>
                                             </tr>

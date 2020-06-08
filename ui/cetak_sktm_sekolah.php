@@ -38,22 +38,22 @@
 
 <?php 
     $no =1; 
-    foreach($db->tampil_sktm_sekolah(null) as $data) {
-        if($data != null){?>
+    foreach($db->tampil_sktm_sekolah(null) as $row) {
+        if($row != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>
 <td align='left'> <?php echo $row['nama']; ?></td>
 <td align='left'> <?php echo $row['nis']; ?> </td>
 <td align='left'> <?php echo $row['nama_sekolah']; ?> </td>
-<td align='left'><?php echo $row['tmp_lahir']; ?>/ <?php echo TanggalIndo($row['tgl_lahir']);?> </td>
+<td align='left'><?php echo $row['tmp_lahir']; ?>/ <?php echo $row['tgl_lahir'];?> </td>
 <td align='left'> <?php echo $row['alamat_sekolah']; ?>  </td>
-<td align='left'> <?php echo $row['alamat_rumah']; ?>  </td>
+<td align='left'> <?php echo $row['alamat']; ?>  </td>
 <td align='center'> <?php echo $row['nama_ayah']; ?>  </td>
 <td align='center'> <?php echo $row['nama_ibu']; ?>  </td>
-<td align='center'> <?php echo $row['alamat_orang_tua']; ?>  </td>
-<td align='center'> <?php echo $row['pekerjaan_orang_tua']; ?>  </td>
-<td align='center'> <?php echo $row['penghasilan_orang_tua']; ?>  </td>
-<td align='center'> <?php echo $row['jumlah_tanggungan']; ?>  </td>
+<td align='center'> <?php echo $row['alamat_ortu']; ?>  </td>
+<td align='center'> <?php echo $row['pekerjaan_ortu']; ?>  </td>
+<td align='center'> <?php echo $row['penghasilan_ortu']; ?>  </td>
+<td align='center'> <?php echo $row['jumlah_tanggung']; ?>  </td>
 </tr>
 <?php
 $no++;}

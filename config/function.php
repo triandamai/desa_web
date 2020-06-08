@@ -1,4 +1,6 @@
 <?php 
+  $base_url = 'http://localhost/pd/';
+  $base_url_images = $base_url.'/ui/images/';
     class database{
        var $host ='localhost';
        var $username = 'root';
@@ -29,9 +31,11 @@
         }
         function tampil_akta($id){
             if($id != null){
-                $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_data WHERE id_data=$id");
+                $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_akta
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_akta.id_data WHERE id_akta=$id");
             }else{
-                $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_data");
+                $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_akta 
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_akta.id_data");
             }
            
             $hasil[] = null;

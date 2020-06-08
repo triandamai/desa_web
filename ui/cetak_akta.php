@@ -35,8 +35,8 @@
 
 <?php 
     $no =1; 
-    foreach($db->tampil_akta(null) as $data) {
-        if($data != null){?>
+    foreach($db->tampil_akta(null) as $rrow) {
+        if($row != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>
 <td align='center'> <?php echo $row['nama']; ?></td>
