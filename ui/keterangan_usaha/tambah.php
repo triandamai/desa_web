@@ -3,11 +3,10 @@
 
         if(isset($_POST['simpan'])){
           
-            $simpan = $db->simpan_pengantar_hajatan(
+            $simpan = $db->simpan_usaha(
                 $_POST['simpan'],
-                $_POST['keperluan'],
-                $_POST['keterangan'],
-                $_POST['masaberlaku'])or die(mysqli_error($db->koneksi));
+                $_POST['alamat'],
+                $_POST['jenis_usaha'])or die(mysqli_error($db->koneksi));
             
             if($simpan){
                 echo '<script>alert("Berhasil Menambahkan ");</script>';
@@ -82,19 +81,13 @@
                             required="" value="" placeholder="000xxx">
                     </div>
                     <div class="form-group">
-                        <label for="bin">Keperluan</label>
-                        <input class="form-control" name="keperluan" type="text" id="bin"
-                            required="" value="" placeholder="misal:john">
+                        <label for="status">Alamat Usaha</label>
+                        <textarea name="alamat" class="form-control" rows="3"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="status">Keterangan</label>
-                        <input class="form-control" name="keterangan" type="text" required=""
-                            id="status" value="" placeholder="Masukkan Status">
-                    </div>
-                    <div class="form-group">
-                        <label for="pasangan">Masa Berlaku</label>
-                        <input class="form-control" name="masaberlaku" type="text" required=""
-                            id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
+                        <label for="status">Jenis Usaha</label>
+                        <input class="form-control" name="jenis_usaha" type="text"
+                            required="" value="" placeholder="">
                     </div>
                     <input class="form-control" name="simpan" value="simpan" type="hidden"
                             required="" placeholder="000xxx">

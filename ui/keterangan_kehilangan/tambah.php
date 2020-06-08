@@ -3,11 +3,10 @@
 
         if(isset($_POST['simpan'])){
           
-            $simpan = $db->simpan_pengantar_hajatan(
+            $simpan = $db->simpan_kehilangan(
                 $_POST['simpan'],
                 $_POST['keperluan'],
-                $_POST['keterangan'],
-                $_POST['masaberlaku'])or die(mysqli_error($db->koneksi));
+                $_POST['keterangan'])or die(mysqli_error($db->koneksi));
             
             if($simpan){
                 echo '<script>alert("Berhasil Menambahkan ");</script>';
@@ -35,7 +34,7 @@
             </thead>
             <tbody>
             <?php $no =1; 
-            foreach($db->tampil_penduduk() as $data) {
+            foreach($db->tampil_penduduk(null) as $data) {
                 if($data != null){
                 ?>
                 <tr>
@@ -91,11 +90,7 @@
                         <input class="form-control" name="keterangan" type="text" required=""
                             id="status" value="" placeholder="Masukkan Status">
                     </div>
-                    <div class="form-group">
-                        <label for="pasangan">Masa Berlaku</label>
-                        <input class="form-control" name="masaberlaku" type="text" required=""
-                            id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
-                    </div>
+                
                     <input class="form-control" name="simpan" value="simpan" type="hidden"
                             required="" placeholder="000xxx">
                     <div class="form-group text-center">

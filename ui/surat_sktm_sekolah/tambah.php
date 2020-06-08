@@ -3,12 +3,16 @@
 
         if(isset($_POST['simpan'])){
           
-            $simpan = $db->simpan_pengantar_hajatan(
+            $simpan = $db->simpan_sktm_sekolah(
+                $_POST['nis'],
                 $_POST['simpan'],
-                $_POST['keperluan'],
-                $_POST['keterangan'],
-                $_POST['masaberlaku'])or die(mysqli_error($db->koneksi));
-            
+                $_POST['nama_sekolah'],
+                $_POST['alamat_sekolah'],
+                $_POST['alamat_ortu'],
+                $_POST['pekerjaan_ortu'],
+                $_POST['penghasilan_ortu'],
+                $_POST['jml_tanggungan'])or die(mysqli_error($db->koneksi));
+            echo $simpan;
             if($simpan){
                 echo '<script>alert("Berhasil Menambahkan ");</script>';
                 echo '<script> location.replace("'.$base_url_module.'"); </script>';
@@ -82,18 +86,31 @@
                             required="" value="" placeholder="000xxx">
                     </div>
                     <div class="form-group">
-                        <label for="bin">Keperluan</label>
-                        <input class="form-control" name="keperluan" type="text" id="bin"
-                            required="" value="" placeholder="misal:john">
-                    </div>
-                    <div class="form-group">
-                        <label for="status">Keterangan</label>
-                        <input class="form-control" name="keterangan" type="text" required=""
+                        <label for="status">NIS</label>
+                        <input class="form-control" name="nis" type="number" required=""
                             id="status" value="" placeholder="Masukkan Status">
                     </div>
                     <div class="form-group">
-                        <label for="pasangan">Masa Berlaku</label>
-                        <input class="form-control" name="masaberlaku" type="text" required=""
+                        <label for="bin">Alamat Sekolah</label>
+                        <textarea name="alamat_sekolah" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="bin">Alamat Orang Tua</label>
+                        <textarea name="alamat_ortu" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Pekerjaan Orang Tua</label>
+                        <input class="form-control" name="pekerjaan_ortu" type="text" required=""
+                            id="status" value="" placeholder="Masukkan Status">
+                    </div>
+                    <div class="form-group">
+                        <label for="pasangan">Penghasilan Orang Tua</label>
+                        <input class="form-control" name="penghasilan_ortu" type="text" required=""
+                            id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
+                    </div>
+                    <div class="form-group">
+                        <label for="pasangan">Jumlah Tanggungan</label>
+                        <input class="form-control" name="jml_tanggungan" type="text" required=""
                             id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
                     </div>
                     <input class="form-control" name="simpan" value="simpan" type="hidden"

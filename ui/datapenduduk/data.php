@@ -27,7 +27,7 @@
                                                 <th>NIK</th>
                                                 <th>Pekerjaan</th>
                                                 <th>Alamat</th>
-                                                <!-- <th>Aksi</th> -->
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -41,13 +41,14 @@
 	                                            <td><?php echo $data['nik'] ?></td>
 	                                            <td><?php echo $data['pekerjaan'] ?></td>
 	                                            <td><?php echo $data['alamat'] ?></td>
-                                                <!-- <td>
-                                                    <form action="" method="POST">
-                                                        <input type="hidden" name="nik" value="<?= $data['id_data'];?>">
-                                                        <input type="submit" 
-                                                        class="btn waves-effect waves-light btn-outline-primary" value="BUAT SURAT"/>
-                                                    </form>
-                                                </td> -->
+                                                <td>
+                                                <a href="#">
+                                                    EDIT
+                                                    </a>
+                                                    <a href="#">
+                                                    HAPUS
+                                                    </a>
+                                                </td>
                                             </tr>
                                             <?php
                                             }

@@ -1,5 +1,6 @@
 <?php 
     $db = new database();
+   
 ?>
 <div class="card-body">
                                 <h4 class="card-title">Multi-column ordering</h4>
