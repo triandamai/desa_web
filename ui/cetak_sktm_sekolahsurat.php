@@ -1,80 +1,144 @@
-<?php 
-    include '../config/function.php';
-    $db = new database();
+<style type="text/css">
+  @font-face {
+    font-family: myFirstFont;
+    src: url(fonts/ufonts.com_square721-bt-roman.ttf);
+  }
+
+  p, u, td{
+    font-family: myFirstFont;
+  }
+</style>
+<title>Print Data SKTM SEKOLAH</title>
+<body onLoad="window.print()">
+<?php
+error_reporting(0);
+session_start();
+include "koneksi.php"; 
+include "tglindo.php"; 
+$d = mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM tbl_sktm_sekolah where id_sktm_sekolah='$_GET[id]'"));
 ?>
-        <div id="page-wrapper">
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
+<table border=0 width=100%>
+<tr>
+    <td align="center" rowspan='3' width='88px'><img src='../../../img/lambang_banyumas.png' width='85px'></td>
+</tr> 
+<tr>
+  <td align="center"><h3 style='margin-bottom:-5px' align=center>PEMERINTAH DESA LUMBIR<br>
+         KECAMATAN LUMBIR KABUPATEN BANYUMAS<br> KEPALA DESA LUMBIR </h3></td>
+    <td align="center" rowspan='3' width='88px'>&nbsp;</td>
+</tr> 
+<tr>
+    <td align="center"><p>Jl. Raya Lumbir  Nomor 38 Tlp.(081) 6575624 Kode pos 53177</p></td>
+</tr> 
+</table>
+<hr style='border:1px solid #000'>
 
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
+<table width=100%>
+<tr>
+    <td align="center"><h3 style='margin-bottom:-5px' align=center><u>SURAT PENGANTAR KETERANGAN TIDAK MAMPU</u> </h3></td>
+</tr> 
+<tr>
+    <td align="center"><p>Nomor : 00<?php echo "$d[id_sktm_sekolah]"; ?>-DS-IX-2019</p></td>
+</tr> 
+</table>
 
-<body onload="window.print ()">
+<table width='100%'>
+<tr>
+  <td>Yang bertanda tangan di bawah ini, Kepala Desa Lumbir Kecamatan Lumbir Kabupaten Banyumas, dengan ini
+menerangkan dengan sesungguhnya bahwa :  </td>
+</tr>
+
+</table>
+<br>
 
 
-<tr><td colspan=8 color="#FFF000"><center>PEMERINTAH KABUPATEN BANYUMAS</center></td></tr>
-<tr><td colspan=8 ><center>KECAMATAN LUMBIR</center></td></tr>
-<tr><td colspan=8 ><center>DESA LUMBIR</center></td></tr>
-<tr><td colspan=8 ><center>Jl. Raya Lumbir Desa. Lumbir Kec. Lumbir 53177 Banyumas Jawa Tengah</center></td></tr>
-<tr><td colspan=8 ><center>=======================================================</center></td></tr>
-
-<table width="100%" border="1" cellpadding="8" cellspacing="0">
-<tr bgcolor='#f2a91c'> 
-<th>No</th> 
-<td>Nama</td>
+<table width='100%' >
+<tr>
+<td></td>
+<td width="40%">Nama Lengkap</td>
+<td width="95%">: <?php echo "$d[nama]";?></td>
+</tr>
+<tr>
+<td></td>
 <td>NIS</td>
+<td>: <?php echo "$d[nis]";?></td>
+</tr>
+<tr>
+<td></td>
 <td>Nama Sekolah</td>
+<td>: <?php echo "$d[nama_sekolah]";?></td>
+</tr>
+<tr>
+<td></td>
 <td>Tempat/ Tanggal Lahir</td>
+<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo TanggalIndo($d['tgl_lahir']);?></td>
+</tr>
+<tr>
+<td></td>
 <td>Alamat Sekolah</td>
+<td>: <?php echo "$d[alamat_sekolah]";?></td>
+</tr>
+<tr>
+<td></td>
 <td>Alamat Rumah</td>
-<td>Nama Ayah</td>
-<td>Nama Ibu</td>
+<td>: <?php echo "$d[alamat_rumah]";?></td>
+</tr>
+<tr>
+<td></td>
+<td>Nama Orang Tua</td> 
+<td> <br> a. Ayah : <?php echo "$d[nama_ayah]";?> <br> b. Ibu : <?php echo($d['nama_ibu']);?></td>
+</tr>
+<tr>
+<td></td>
 <td>Alamat Orang Tua</td>
+<td>: <?php echo "$d[alamat_orang_tua]";?></td>
+</tr>
+<tr>
+<td></td>
 <td>Pekerjaan Orang Tua</td>
+<td>: <?php echo "$d[pekerjaan_orang_tua]";?></td>
+</tr>
+<tr>
+<td></td>
 <td>Penghasilan Orang Tua</td>
+<td>: <?php echo "$d[penghasilan_orang_tua]";?></td>
+</tr>
+<tr>
+<td></td>
 <td>Jumlah Tanggungan</td>
+<td>: <?php echo "$d[jumlah_tanggungan]";?></td>
 </tr>
-
-<?php
-include"koneksi.php";
-include"tglindo.php";
-$sql = mysqli_query($koneksi,"SELECT * FROM tbl_sktm_sekolah ORDER BY id_sktm_sekolah");
-$no=1;
-while($row = mysqli_fetch_array($sql)){
-?>
-<tr bgcolor='#FFF'>
-<td align='center'> <?php echo $no; ?> </td>
-<td align='left'> <?php echo $row['nama']; ?></td>
-<td align='left'> <?php echo $row['nis']; ?> </td>
-<td align='left'> <?php echo $row['nama_sekolah']; ?> </td>
-<td align='left'><?php echo $row['tmp_lahir']; ?>/ <?php echo TanggalIndo($row['tgl_lahir']);?> </td>
-<td align='left'> <?php echo $row['alamat_sekolah']; ?>  </td>
-<td align='left'> <?php echo $row['alamat_rumah']; ?>  </td>
-<td align='center'> <?php echo $row['nama_ayah']; ?>  </td>
-<td align='center'> <?php echo $row['nama_ibu']; ?>  </td>
-<td align='center'> <?php echo $row['alamat_orang_tua']; ?>  </td>
-<td align='center'> <?php echo $row['pekerjaan_orang_tua']; ?>  </td>
-<td align='center'> <?php echo $row['penghasilan_orang_tua']; ?>  </td>
-<td align='center'> <?php echo $row['jumlah_tanggungan']; ?>  </td>
-</tr>
-<?php
-$no++;
-}
-?>
-</table>
-<table>
-<td>
-<tr>KEPALA DESA LUMBIR,<?php echo date('d - M - Y'); ?></tr><br>
-<tr>                 </tr><br>
-<tr>                    </tr><br>
-<tr>                    </tr><br>
-<tr>                    </tr><br>
-<tr>      SUWARJO     </tr>
-</td>
 </table>
 
-</div>
-</div>
-</div>
-</div>
+<p>Keadaan Keluarga yang bersangkutan benar-benar kurang mampu. Demikian Surat Keterangan ini dibuat agar dapat digunakan untuk melengkapi salah satu persyaratan mendapatkan bantuan pendididkan .</p>
+<table width=100%>
+  <tr>
+    <td width="30%">
+	
+	
+	
+    </td>
+    </td>
+
+    <td width="30%">
+
+    </td>
+
+    <td >
+       
+        <table align = "center">
+            
+            <tr>
+              <td>Lumbir,</td>
+              <td> <?php echo date("d M Y"); ?></td></tr>
+        </table><br>
+        <center>
+          KEPALA DESA LUMBIR<br><br><br><br><br><br>
+
+          SUWARJO <br>
+         
+    
+        </center>
+    </td>
+  </tr>
+</table> 
+</body>

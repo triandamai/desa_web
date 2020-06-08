@@ -2,7 +2,7 @@
     $db = new database();
 ?>
 <div class="card-body">
-                                <h4 class="card-title">Multi-column ordering</h4>
+                                <h4 class="card-title">Data Warga Tidak Mampu</h4>
                                 <a href="<?= $base_url_module;?>&&action=tambah" type="button"
                                         class="btn waves-effect waves-light btn-outline-primary">TAMBAH</a>
                                 <div class="table-responsive">
@@ -26,7 +26,7 @@
                                         <tbody>
                                         <?php $no =1; 
                                        
-                                        foreach($db->tampil_pengantar_hajatan() as $data) {
+                                        foreach($db->tampil_sktm(null) as $data) {
                                             if($data != null){
                                             ?>
                                             <tr>
@@ -41,12 +41,8 @@
 	                                            <td><?php echo $data['pekerjaan'] ?></td>
 	                                            <td><?php echo $data['alamat'] ?></td>
                                                 <td>
-                                                    <a href="?module=edit_skck&id=<?php echo $data['id_skck']; ?>">
-                                                    <span class="glyphicon glyphicon-pencil"></span></a>  
-                                                    <a href="hapus_skck.php?id=<?php echo $data['id_skck']; ?>">
-                                                    <span class="glyphicon glyphicon-trash"></span></a>  
-                                                    <a href="print_skck.php?id=<?php echo $data['id_skck']; ?>" target="_blank">
-                                                    <span class="glyphicon glyphicon-print"></span>
+                                                <a href="<?= $base_url.'/ui/cetak_sktmsurat.php?module=cetak_pengantar_skck&&ref=yes&&id='.$data['id_sktm'] ?>">
+                                                    Cetak
                                                     </a>
                                                 </td>
                                             </tr>

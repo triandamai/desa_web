@@ -20,7 +20,7 @@
         }
 ?>
 <div class="card-body">
-    <h4 class="card-title">Pilih Warga Untuk Diajukan Surat Pengantar Ijin Keramaia/Acara</h4>             
+    <h4 class="card-title">Pilih Warga Untuk Diajukan Surat Pengantar Ijin Keramaian/Acara</h4>             
     <div class="table-responsive">
         <table id="multi_col_order"
             class="table table-striped table-bordered display no-wrap" style="width:100%">

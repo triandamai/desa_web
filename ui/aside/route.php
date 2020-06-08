@@ -54,12 +54,12 @@ $menus = array(
                 "link" => $base_url."/ui/index.php?page=index&&module=pengantar_keramaian&&section=Data Surat Izin Keramaian",
                 "child" =>"",
              ), 
-            //5  => array(
-            //     "id"=> 1,
-            //     "name" => "KETERANGAN TIDAK MAMPU",
-            //     "link" => $base_url."/ui/index.php?page=index&&module=keterangan_tidak_mampu",
-            //     "child" =>"",
-            // ),
+            5  => array(
+                "id"=> 1,
+                "name" => "KETERANGAN TIDAK MAMPU",
+                "link" => $base_url."/ui/index.php?page=index&&module=keterangan_tidak_mampu",
+                "child" =>"",
+            ),
              6  => array(
                 "id"=> 1,
                 "name" => "SKTM SEKOLAH",
@@ -139,12 +139,12 @@ $menus = array(
                 "link" => $base_url.'/ui/cetak_keramaian.php?module=cetak&&ref=yes',
                 "child" =>"",
             ),
-            // 5 => array(
-            //     "id"=> 1,
-            //     "name" => "KETERANGAN TIDAK MAMPU",
-            //     "link" => $base_url.'/ui/cetak_tidakmampu.php?module=cetak&&ref=yes',
-            //     "child" =>"",
-            // ),
+            5 => array(
+                "id"=> 1,
+                "name" => "KETERANGAN TIDAK MAMPU",
+                "link" => $base_url.'/ui/cetak_tidakmampu.php?module=cetak&&ref=yes',
+                "child" =>"",
+            ),
             6 => array(
                 "id"=> 1,
                 "name" => "SKTM SEKOLAH",

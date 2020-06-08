@@ -3,7 +3,7 @@
 
 ?>
 <div class="card-body">
-                                <!-- <h4 class="card-title">Multi-column ordering</h4> -->
+                                <h4 class="card-title">Data Surat Pengantar SKCK</h4>
                                 <a href="<?= $base_url_module;?>&&action=tambah" type="button"
                                         class="btn waves-effect waves-light btn-outline-primary">TAMBAH</a>
                                 <div class="table-responsive">
@@ -45,6 +45,7 @@
                                                     <a href="<?= $base_url.'/ui/cetak_skcksurat.php?module=cetak_pengantar_skck&&ref=yes&&id='.$data['id_skck']; ?>">
                                                     Cetak
                                                     </a>
+                                                    
                                                 </td>
                                             </tr>
                                             <?php

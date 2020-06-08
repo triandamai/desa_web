@@ -44,7 +44,7 @@
             $data = null;
             if($id != null){
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_belum_nikah
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_belum_nikah.id_kk WHERE tbl_belum_nikah.id_belum_nikah");
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_belum_nikah.id_kk WHERE tbl_belum_nikah.id_belum_nikah=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_belum_nikah 
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_belum_nikah.id_kk");
@@ -137,8 +137,8 @@
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_kematian 
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_kematian.id_data WHERE id_kematian=$id");
             }else{
-                $data = mysqli_query($this->koneksi,"SELECT * FROM
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_kematian.id_data tbl_kematian");
+                $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_kematian
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_kematian.id_data");
             }
             
 

@@ -5,8 +5,12 @@
           
             
            
-            $simpan = $db->simpan_suket_pindah_penduduk($_POST['simpan'],
-            $_POST['kepalakeluarga'],$_POST['alamatasal'],$_POST['alamattujuan'],$_POST['jumlah']) or die(mysqli_error($db->koneksi));
+            $simpan = $db->simpan_suket_pindah_penduduk(
+            $_POST['simpan'],
+            $_POST['kepalakeluarga'],
+            $_POST['alamatasal'],
+            $_POST['alamattujuan'],
+            $_POST['jumlah']) or die(mysqli_error($db->koneksi));
             
             if($simpan){
                 echo '<script>alert("Berhasil Menambahkan ");</script>';
@@ -18,7 +22,7 @@
         }
 ?>
 <div class="card-body">
-    <h4 class="card-title">Pilih Warga Untuk Diajukan Surat Keterangan Belum Menikah</h4>             
+    <h4 class="card-title">Pilih Warga Yang Pindah</h4>             
     <div class="table-responsive">
         <table id="multi_col_order"
             class="table table-striped table-bordered display no-wrap" style="width:100%">
@@ -87,17 +91,15 @@
                     </div>
                     <div class="form-group">
                         <label for="status">Alamat Asal</label>
-                        <input class="form-control" name="alamatasal" type="text" required=""
-                            id="status" value="" placeholder="Masukkan Status">
+                        <textarea name="alamatasal" class="form-control" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="pasangan">Alamat Tujuan</label>
-                        <input class="form-control" name="alamattujuan" type="text" required=""
-                            id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
+                        <textarea name="alamattujuan" class="form-control" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="pasangan">Jumlah Anggota</label>
-                        <input class="form-control" name="jumlah" type="text" required=""
+                        <input class="form-control" name="jumlah" type="number" required=""
                             id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
                     </div>
                     <input class="form-control" name="simpan" value="simpan" type="hidden"

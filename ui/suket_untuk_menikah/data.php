@@ -1,9 +1,8 @@
 <?php 
         $db = new database();
-       // echo json_encode($db->tampil_suket_untuk_menikah() );
 ?>
 <div class="card-body">
-                                <h4 class="card-title">Multi-column ordering</h4>
+                                <h4 class="card-title">Data Surat Untuk Menikah</h4>
                                 <a href="<?= $base_url_module;?>&&action=tambah" type="button"
                                         class="btn waves-effect waves-light btn-outline-primary">TAMBAH</a>
                                 <div class="table-responsive">

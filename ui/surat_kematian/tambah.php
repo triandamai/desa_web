@@ -3,11 +3,11 @@
 
         if(isset($_POST['simpan'])){
           
-            $simpan = $db->simpan_pengantar_hajatan(
+            $simpan = $db-> simpan_kematian(
                 $_POST['simpan'],
-                $_POST['keperluan'],
-                $_POST['keterangan'],
-                $_POST['masaberlaku'])or die(mysqli_error($db->koneksi));
+                $_POST['tgl_mati'],
+                $_POST['tempat_mati'],
+                $_POST['sebab'])or die(mysqli_error($db->koneksi));
             
             if($simpan){
                 echo '<script>alert("Berhasil Menambahkan ");</script>';
@@ -19,7 +19,7 @@
         }
 ?>
 <div class="card-body">
-    <h4 class="card-title">Pilih Warga Untuk Diajukan Surat Pengantar Ijin Khitanan</h4>             
+    <h4 class="card-title">Pilih Warga Yang Meninggal Dunia</h4>             
     <div class="table-responsive">
         <table id="multi_col_order"
             class="table table-striped table-bordered display no-wrap" style="width:100%">
@@ -82,19 +82,18 @@
                             required="" value="" placeholder="000xxx">
                     </div>
                     <div class="form-group">
-                        <label for="bin">Keperluan</label>
-                        <input class="form-control" name="keperluan" type="text" id="bin"
+                        <label class="mr-sm-2" for="inlineFormCustomSelect">Tanggal Kematian</label>
+                                        <input type="date" name="tgl_mati" class="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="bin">Tempat Kematian</label>
+                        <input class="form-control" name="tempat_mati" type="text" id="bin"
                             required="" value="" placeholder="misal:john">
                     </div>
                     <div class="form-group">
-                        <label for="status">Keterangan</label>
-                        <input class="form-control" name="keterangan" type="text" required=""
+                        <label for="status">Sebab Kematian</label>
+                        <input class="form-control" name="sebab" type="text" required=""
                             id="status" value="" placeholder="Masukkan Status">
-                    </div>
-                    <div class="form-group">
-                        <label for="pasangan">Masa Berlaku</label>
-                        <input class="form-control" name="masaberlaku" type="text" required=""
-                            id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
                     </div>
                     <input class="form-control" name="simpan" value="simpan" type="hidden"
                             required="" placeholder="000xxx">
