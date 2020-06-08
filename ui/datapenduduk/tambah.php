@@ -120,8 +120,13 @@
                     </div>
                     <div class="form-group">
                         <label for="status">Pekerjaan</label>
-                        <input class="form-control" name="pekerjaan" type="text" required=""
-                            id="status" value="" placeholder="Masukkan Pekerjaan">
+                        <select name="pekerjaan" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                            <option selected>Pilih...</option>
+                                            <option value="PELAJAR">Pelajar/Mahasiswa</option>
+                                            <option value="PNS">PNS</option>
+                                            <option value="WIRASWASTA">Wiraswasta</option>
+                                            <option value="KARYAWAN">Karyawan</option>
+                                            <option value="LAIN">LAINNYA</option>
                     </div>
                     <div class="form-group">
                         <label for="status">Kewarganegaraan</label>

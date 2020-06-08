@@ -3,11 +3,10 @@
 
         if(isset($_POST['simpan'])){
           
-            $simpan = $db->simpan_pengantar_hajatan(
+            $simpan = $db->simpan_akta(
                 $_POST['simpan'],
                 $_POST['keperluan'],
-                $_POST['keterangan'],
-                $_POST['masaberlaku'])or die(mysqli_error($db->koneksi));
+                $_POST['keterangan'])or die(mysqli_error($db->koneksi));
             
             if($simpan){
                 echo '<script>alert("Berhasil Menambahkan ");</script>';
@@ -19,7 +18,7 @@
         }
 ?>
 <div class="card-body">
-    <h4 class="card-title">Pilih Warga Untuk Diajukan Surat Pengantar Ijin Khitanan</h4>             
+    <h4 class="card-title">Pilih Penduduk Untuk Diajukan Akta Kelahiran</h4>             
     <div class="table-responsive">
         <table id="multi_col_order"
             class="table table-striped table-bordered display no-wrap" style="width:100%">
@@ -35,7 +34,7 @@
             </thead>
             <tbody>
             <?php $no =1; 
-            foreach($db->tampil_penduduk() as $data) {
+            foreach($db->tampil_penduduk(null) as $data) {
                 if($data != null){
                 ?>
                 <tr>
@@ -81,6 +80,7 @@
                         <input class="form-control" name="idpenduduk" type="hidden" disabled id="id_data"
                             required="" value="" placeholder="000xxx">
                     </div>
+                    
                     <div class="form-group">
                         <label for="bin">Keperluan</label>
                         <input class="form-control" name="keperluan" type="text" id="bin"
@@ -91,11 +91,7 @@
                         <input class="form-control" name="keterangan" type="text" required=""
                             id="status" value="" placeholder="Masukkan Status">
                     </div>
-                    <div class="form-group">
-                        <label for="pasangan">Masa Berlaku</label>
-                        <input class="form-control" name="masaberlaku" type="text" required=""
-                            id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
-                    </div>
+                   
                     <input class="form-control" name="simpan" value="simpan" type="hidden"
                             required="" placeholder="000xxx">
                     <div class="form-group text-center">

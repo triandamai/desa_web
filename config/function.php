@@ -297,17 +297,12 @@
 
 	        return $simpan;
         }
-        function simpan_akta($nama,$nik,$jk,$tmp_lahir,$tgl_lahir,$agama,$pekerjaan,$alamat,$keperluan,$keterangan){
+        function simpan_akta(
+            $nik,$keperluan,$keterangan){
             $simpan = mysqli_query($this->koneksi,
-            "INSERT INTO tbl_akta (nama,nik,jenis_kelamin,tmp_lahir,tgl_lahir,agama,pekerjaan,alamat,keperluan,keterangan) 
-            values ('$nama',
-            '$nik',
-            '$jk',
-            '$tmp_lahir',
-            '$tgl_lahir',
-            '$agama',
-            '$pekerjaan',
-            '$alamat',
+            "INSERT INTO tbl_akta (id_data,keperluan,keterangan) 
+            values (
+            $nik,
             '$keperluan',
             '$keterangan')");
 
