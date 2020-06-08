@@ -24,12 +24,12 @@
 <th><center>No</th> 
 <td><center>Nama</td>
 <td><center>NIK</td>
-<td><center>Jenis Kelamin</td>
-<td><center>Tempat/ Tanggal Lahir</td>
 <td><center>Kewarganegaraan</td>
-<td><center>Agama</td>
 <td><center>Pekerjaan</td>
 <td><center>Alamat</td>
+<td><center>Keperluan</td>
+<td><center>Keterangan</td>
+<td><center>Masa Berlaku</td>
 </tr>
 
 <?php 
@@ -40,13 +40,12 @@
 <td align='center'> <?php echo $no; ?> </td>
 <td align='center'> <?php echo $data['nama']; ?></td>
 <td align='center'> <?php echo $data['nik']; ?> </td>
-<td align='center'> <?php echo $data['jenis_kel']; ?> </td>
-<td align='center'> <?php echo $data['tmp_lahir']; ?>
- <?php echo $data['tgl_lahir'];?> </td>
 <td align='center'> <?php echo $data['kewarganegaraan']; ?>  </td>
-<td align='center'> <?php echo $data['agama']; ?>  </td>
 <td align='center'> <?php echo $data['pekerjaan']; ?>  </td>
 <td align='center'> <?php echo $data['alamat']; ?>  </td>
+<td align='center'> <?php echo $data['keperluan']; ?>  </td>
+<td align='center'> <?php echo $data['keterangan']; ?>  </td>
+<td align='center'> <?php echo $data['masa_berlaku']; ?> Bulan  </td>
 </tr>
 <?php   
         $no++;

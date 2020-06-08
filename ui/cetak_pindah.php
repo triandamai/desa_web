@@ -24,30 +24,28 @@
 <th><center>No</th> 
 <td><center>Nama</td>
 <td><center>NIK</td>
-<td><center>Jenis Kelamin</td>
+<td><center>Kepala Keluarga</td>
 <td><center>Tempat/ Tanggal Lahir</td>
-<td><center>Status Perkawinan</td>
 <td><center>Kewarganegaraan</td>
-<td><center>Agama</td>
-<td><center>Pekerjaan</td>
-<td><center>Alamat</td>
+<td><center>Alamat Asal</td>
+<td><center>Alamat Tujuan</td>
+<td><center>Jumlah Anggota</td>
 </tr>
 
 <?php 
     $no =1; 
-    foreach($db->tampil_suket_pindah_penduduk(null) as $data) {
-        if($data != null){?>
+    foreach($db->tampil_suket_pindah_penduduk(null) as $row) {
+        if($row != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>
 <td align='center'> <?php echo $row['nama']; ?></td>
 <td align='center'> <?php echo $row['nik']; ?> </td>
-<td align='center'> <?php echo $row['jenis_kelamin']; ?> </td>
-<td align='center'><?php echo $row['tmp_lahir']; ?>/ <?php echo TanggalIndo($row['tgl_lahir']);?> </td>
-<td align='center'> <?php echo $row['status_perkawinan']; ?>  </td>
+<td align='center'> <?php echo $row['nama_kepkel']; ?> </td>
+<td align='center'><?php echo $row['tmp_lahir']; ?>/ <?php echo $row['tgl_lahir'];?> </td>
 <td align='center'> <?php echo $row['kewarganegaraan']; ?>  </td>
-<td align='center'> <?php echo $row['agama']; ?>  </td>
-<td align='center'> <?php echo $row['pekerjaan']; ?>  </td>
-<td align='center'> <?php echo $row['alamat']; ?>  </td>
+<td align='center'> <?php echo $row['alamat_asal']; ?>  </td>
+<td align='center'> <?php echo $row['alamat_tuju']; ?>  </td>
+<td align='center'> <?php echo $row['jumlah_anggota']; ?>  </td>
 </tr>
 <?php
 $no++;}

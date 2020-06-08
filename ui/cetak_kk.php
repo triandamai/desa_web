@@ -35,15 +35,15 @@
 
 <?php 
     $no =1; 
-    foreach($db->tampil_kk(null) as $data) {
-        if($data != null){?>
+    foreach($db->tampil_kk(null) as $row) {
+        if($row != null){?>
 <tr bgcolor='#FFF'>
 <td align='center'> <?php echo $no; ?> </td>
 <td align='center'> <?php echo $row['nama']; ?></td>
 <td align='center'> <?php echo $row['nik']; ?> </td>
-<td align='center'> <?php echo $row['jenis_kelamin']; ?> </td>
-<td align='center'><?php echo $row['tmp_lahir']; ?>/ <?php echo TanggalIndo($row['tgl_lahir']);?> </td>
-<td align='center'> <?php echo $row['status_perkawinan']; ?>  </td>
+<td align='center'> <?php echo $row['jenis_kel']; ?> </td>
+<td align='center'><?php echo $row['tmp_lahir']; ?>/ <?php echo $row['tgl_lahir'];?> </td>
+<td align='center'> <?php echo $row['status_kawin']; ?>  </td>
 <td align='center'> <?php echo $row['kewarganegaraan']; ?>  </td>
 <td align='center'> <?php echo $row['agama']; ?>  </td>
 <td align='center'> <?php echo $row['pekerjaan']; ?>  </td>
