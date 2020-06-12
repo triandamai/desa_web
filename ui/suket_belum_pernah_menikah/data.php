@@ -1,6 +1,17 @@
 <?php 
         $db = new database();
-      
+
+        if(isset($_POST['hapus'])){
+            $id = $_POST['id'];
+            $simpan = $db->hapus_suket_belum_nikah($id);
+            if($simpan){
+                echo '<script>alert("Berhasil Menghapus ");</script>';
+               echo '<script> location.replace("'.$base_url_module.'"); </script>';
+            }else{
+                echo '<script>alert("Gagal Menghapus ");</script>';
+            }
+        }
+    
 ?>
 <div class="card-body">
                                 <h4 class="card-title">Data Surat Keterangan Belum Menikah</h4>
@@ -43,7 +54,7 @@
                                                     Cetak
                                                     </a>
                                                     <form action="" method="POST">
-                                                        <input type="hidden" name="id" value="<?=  $data['id_data'];?>">
+                                                        <input type="hidden" name="id" value="<?=  $data['id_belum_nikah'];?>">
                                                         <input type="submit" name="hapus"  class="btn waves-effect waves-light btn-outline-primary" value="HAPUS" >
                                                     </form>
                                                 </td>

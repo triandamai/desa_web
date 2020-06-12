@@ -31,7 +31,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_akta.id_data WHERE id_akta=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_akta 
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_akta.id_data");
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_akta.id_data WHERE tbl_akta.status='tersedia'");
             }
            
             $hasil[] = null;
@@ -47,7 +47,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_belum_nikah.id_kk WHERE tbl_belum_nikah.id_belum_nikah=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_belum_nikah 
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_belum_nikah.id_kk");
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_belum_nikah.id_kk WHERE tbl_belum_nikah.status='tersedia'");
             }
              $hasil[] = null;
             while($d = mysqli_fetch_array($data)){
@@ -76,7 +76,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_domisili.id_data WHERE tbl_domisili.id_domisili=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_domisili  
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_domisili.id_data");
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_domisili.id_data WHERE tbl_domisili.status='tersedia'");
             }
             
             $hasil[] = null;
@@ -91,7 +91,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_hajatan.id_data WHERE tbl_hajatan.id_hajatan=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_hajatan
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_hajatan.id_data");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_hajatan.id_data WHERE tbl_hajatan.status='tersedia'");
             }
             
 
@@ -107,7 +107,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_hiburan.id_data WHERE tbl_hiburan.id_hiburan=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_hiburan
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_hiburan.id_data");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_hiburan.id_data WHERE tbl_hiburan.status='tersedia'");
             }
             
 
@@ -123,7 +123,7 @@
             INNER JOIN tbl_data ON tbl_data.id_data = tbl_kehilangan.id_data WHERE tbl_kehilangan.id_kehilangan=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_kehilangan
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_kehilangan.id_data");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_kehilangan.id_data WHERE status='tersedia'");
             }
             
 
@@ -139,7 +139,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_kematian.id_data WHERE id_kematian=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_kematian
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_kematian.id_data");
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_kematian.id_data WHERE tbl_kematian.status='tersedia'");
             }
             
 
@@ -155,7 +155,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_kk.id_data WHERE id_kk=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_kk 
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_kk.id_data");
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_kk.id_data WHERE tbl_kk.status='tersedia'");
             }
             
 
@@ -171,7 +171,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_nikah.id_data WHERE id_nikah=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_nikah 
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_nikah.id_data");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_nikah.id_data WHERE tbl_nikah.status='tersedia'");
             }
             
 
@@ -188,7 +188,7 @@
                 
             }
             $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_nikah 
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_nikah.id_data");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_nikah.tbl_nikah.id_data");
 
             $hasil[] = null;
             while($d = mysqli_fetch_array($data)){
@@ -204,7 +204,7 @@
             INNER JOIN tbl_data ON tbl_data.id_data = tbl_skck.id_kk WHERE tbl_skck.id_skck=$id");
             }else{
             $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_skck 
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_skck.id_kk");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_skck.id_kk WHERE tbl_skck.status='tersedia'");
             }
              $hasil[] = null;
             while($d = mysqli_fetch_array($data)){
@@ -221,7 +221,7 @@
                 INNER JOIN tbl_data ON tbl_data.id_data = tbl_pindah.id_data WHERE id_pindah=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_pindah 
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_pindah.id_data");
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_pindah.id_data WHERE tbl_pindah.status='tersedia'");
             }
            
 
@@ -242,7 +242,7 @@
             INNER JOIN tbl_data ON tbl_data.id_data = tbl_sktm.id_data WHERE id_sktm=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_sktm
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_sktm.id_data");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_sktm.id_data WHERE tbl_sktm.status='tersedia'");
 
             }
             
@@ -258,7 +258,7 @@
             INNER JOIN tbl_data ON tbl_data.id_data = tbl_sktm_sekolah.id_data WHERE id_sktm_sekolah=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_sktm_sekolah
-                INNER JOIN tbl_data ON tbl_data.id_data = tbl_sktm_sekolah.id_data");
+                INNER JOIN tbl_data ON tbl_data.id_data = tbl_sktm_sekolah.id_data WHERE tbl_sktm_sekolah.status='tersedia'");
             }
             
             $hasil[] = null;
@@ -274,7 +274,7 @@
     
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_usaha
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_usaha.id_data");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_usaha.id_data WHERE tbl_usaha.status='tersedia'");
 
             }
             
