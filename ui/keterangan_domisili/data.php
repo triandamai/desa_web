@@ -1,6 +1,17 @@
 <?php 
-    $db = new database();
-   
+        $db = new database();
+
+        if(isset($_POST['hapus'])){
+            $id = $_POST['id'];
+            $simpan = $db->hapus_penduduk($id);
+            if($simpan){
+                echo '<script>alert("Berhasil Menghapus ");</script>';
+               echo '<script> location.replace("'.$base_url_module.'"); </script>';
+            }else{
+                echo '<script>alert("Gagal Menghapus ");</script>';
+            }
+        }
+    
 ?>
 <div class="card-body">
                                 <h4 class="card-title">Data Pengajuan Surat Domisili</h4>
@@ -42,9 +53,13 @@
 	                                            <td><?php echo $data['pekerjaan'] ?></td>
 	                                            <td><?php echo $data['alamat'] ?></td>
                                                 <td>
-                                                <a href="<?= $base_url.'/ui/cetak_domisilisurat.php?module=cetak_pengantar_skck&&ref=yes&&id='.$data['id_domisili']; ?>">
+                                                    <a href="<?= $base_url.'/ui/cetak_domisilisurat.php?module=cetak_pengantar_skck&&ref=yes&&id='.$data['id_domisili']; ?>"  class="btn waves-effect waves-light btn-outline-primary">
                                                     Cetak
                                                     </a>
+                                                    <form action="" method="POST">
+                                                        <input type="hidden" name="id" value="<?=  $data['id_data'];?>">
+                                                        <input type="submit" name="hapus"  class="btn waves-effect waves-light btn-outline-info" value="HAPUS" >
+                                                    </form>
                                                 </td>
                                             </tr>
                                             <?php

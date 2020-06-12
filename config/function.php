@@ -20,14 +20,10 @@
             }
         }
         function overview(){
-            $o =0;
+          
             $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_data");
-            if($data){
-                $o = mysqli_num_rows($data);
-            }else{
-                $o =0;
-            }
-            return $o;
+            echo $data;
+            return $data;
         }
         function tampil_akta($id){
             if($id != null){
@@ -64,7 +60,7 @@
             if($id != null){
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_data WHERE id_data=$id");
             }else{
-                $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_data");
+                $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_data WHERE status='tersedia'");
             }
             
             $hasil[] = null;
@@ -73,6 +69,7 @@
             }
             return $hasil;
         }
+        
         function tampil_domisili($id){
             if($id != null){
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_domisili  
@@ -301,18 +298,26 @@
 
 	        return $simpan;
         }
+        function hapus_admin($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_admin SET status='dihapus' WHERE id_admin=$id");
+
+	        return $simpan;
+        }
         function simpan_akta(
             $nik,$keperluan,$keterangan){
             $simpan = mysqli_query($this->koneksi,
             "INSERT INTO tbl_akta (id_data,keperluan,keterangan) 
-            values (
-            $nik,
-            '$keperluan',
-            '$keterangan')");
+            values ($nik,'$keperluan','$keterangan')");
 
 	        return $simpan;
         }
-        
+        function hapus_akta($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_akta SET status='dihapus' WHERE id_akta=$id");
+
+	        return $simpan;
+        }
 
         function simpan_suket_belum_nikah($nik){
             $simpan = mysqli_query($this->koneksi,
@@ -320,7 +325,28 @@
 
 	        return $simpan;
         }
-        function simpan_penduduk(
+        function hapus_suket_belum_nikah($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_belum_nikah SET status='dihapus' WHERE id_belum_nikah=$id");
+
+	        return $simpan;
+        }
+        function simpan_penduduk($nik,$nokk,$nama,$jenis_kelamin,$tgl_lahir,$umur,$tmp_lahir,$alamat,$rt,$rw,$kelurahan,$status_kawin,$pendidikan,$kewarganegaraan,$agama,$pekerjaan,$gol_darah,$akta_lahir,$no_akta,$akta_kawin,$nok_akta_kawin,$akta_cerai,$no_aktacerai,$nama_ayah,$nama_ibu){$simpan = mysqli_query($this->koneksi,
+            "INSERT INTO 
+            tbl_data (nik,nkk,nama,jenis_kel,tgl_lahir,umur,tmp_lahir,alamat,no_rt,no_rw,kelurahan,status_kawin,pendidikan,kewarganegaraan,agama,pekerjaan,gol_darah,akta_lahir,no_akta_lahir,akta_kawin,no_akta_kawin,akta_cerai,no_akta_cerai,nama_ayah,nama_ibu) 
+            values ($nik,$nokk,'$nama','$jenis_kelamin','$tgl_lahir',$umur,'$tmp_lahir','$alamat',$rt,$rw,'$kelurahan','$status_kawin','$pendidikan','$kewarganegaraan','$agama','$pekerjaan','$gol_darah','$akta_lahir',$no_akta,'$akta_kawin',$nok_akta_kawin,'$akta_cerai',$no_aktacerai,'$nama_ayah','$nama_ibu')");
+
+	        return $simpan;
+        }
+
+        function hapus_penduduk($id){
+            
+            $hapus = mysqli_query($this->koneksi,
+            "UPDATE tbl_data SET status='dihapus' WHERE id_data=$id");
+    
+        return $hapus;
+        }
+        function ubah_penduduk($id,
             $nik,
             $nokk,
             $nama,
@@ -346,64 +372,46 @@
             $no_aktacerai,
             $nama_ayah,
             $nama_ibu){
+                
             $simpan = mysqli_query($this->koneksi,
-            "INSERT INTO tbl_data (
-                nik,
-            nkk,
-            nama,
-            jenis_kel,
-            tgl_lahir,
-            umur,
-            tmp_lahir,
-            alamat,
-            no_rt,
-            no_rw,
-            kelurahan,
-            status_kawin,
-            pendidikan,
-            kewarganegaraan,
-            agama,
-            pekerjaan,
-            gol_darah,
-            akta_lahir,
-            no_akta_lahir,
-            akta_kawin,
-            no_akta_kawin,
-            akta_cerai,
-            no_akta_cerai,
-            nama_ayah,
-            nama_ibu) values (
-                $nik,
-                $nokk,
-                '$nama',
-                '$jenis_kelamin',
-                '$tgl_lahir',
-                $umur,
-                '$tmp_lahir',
-                '$alamat',
-                $rt,
-                $rw,
-                '$kelurahan',
-                '$status_kawin',
-                '$pendidikan',
-                '$kewarganegaraan',
-                '$agama',
-                '$pekerjaan',
-                '$gol_darah',
-                '$akta_lahir',
-                $no_akta,
-                '$akta_kawin',
-                $nok_akta_kawin,
-                '$akta_cerai',
-                $no_aktacerai,
-                '$nama_ayah',
-                '$nama_ibu')");
+            "UPDATE tbl_data SET 
+            nik = $nik,
+            nkk = $nokk,
+            nama = '$nama',
+            jenis_kel = '$jenis_kelamin',
+            tgl_lahir =  '$tgl_lahir',
+            umur = $umur,
+            tmp_lahir= '$tmp_lahir', 
+            alamat = '$alamat',
+            no_rt = '$rt',
+            no_rw = '$rw',
+            kelurahan = '$kelurahan',
+            status_kawin = '$status_kawin',
+            pendidikan = '$pendidikan',
+            kewarganegaraan = '$kewarganegaraan',
+            agama = '$agama',
+            pekerjaan = '$pekerjaan',
+            gol_darah = '$gol_darah',
+            akta_lahir = '$akta_lahir',
+            no_akta_lahir= $no_akta,
+            akta_kawin='$akta_kawin',
+            no_akta_kawin=$nok_akta_kawin,
+            akta_cerai='$akta_cerai',
+            no_akta_cerai = $no_aktacerai,
+            nama_ayah = '$nama_ayah',
+            nama_ibu = '$nama_ibu' WHERE id_data=$id");
 
 	        return $simpan;
         }
         function simpan_domisili($nik,$alamat){
             $simpan = mysqli_query($this->koneksi,
             "INSERT INTO tbl_domisili (id_data,alamat_domisili) values ($nik,'$alamat')");
+
+	        return $simpan;
+        }
+        function hapus_domisili($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_domisili SET status='dihapus' WHERE id_domisili=$id");
 
 	        return $simpan;
         }
@@ -416,6 +424,12 @@
 
             return $simpan;
         }
+        function hapus_pengantar_hajatan($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_hajatan SET status='dihapus' WHERE id_hajatan=$id");
+
+	        return $simpan;
+        }
         function simpan_hiburan($id_data,$acara,$hiburan,$tanggal,$tempat){
             $simpan = mysqli_query($this->koneksi,
             "INSERT INTO tbl_hiburan (id_data,
@@ -427,6 +441,12 @@
 
             return $simpan;
         }
+        function hapus_hiburan($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_hiburan SET status='dihapus' WHERE id_hiburan=$id");
+
+	        return $simpan;
+        }
         function simpan_kehilangan($id_data, $keperluan,$keterangan){
             $simpan = mysqli_query($this->koneksi,
             "INSERT INTO tbl_kehilangan (id_data,
@@ -436,6 +456,12 @@
                                         '$keterangan')");
 
             return $simpan;
+        }
+        function hapus_kehilangan($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_kehilangan SET status='dihapus' WHERE id_kehilangan=$id");
+
+	        return $simpan;
         }
         function simpan_kematian($id_data,$tgl_mati,$tmp_mati,$sebab){
             $simpan = mysqli_query($this->koneksi,
@@ -448,9 +474,15 @@
 
             return $simpan;
         }
+        function hapus_kematian($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_kematian SET status='dihapus' WHERE id_kematian=$id");
+
+	        return $simpan;
+        }
         function simpan_kk($nokk,$id_data,$status,$keperluan,$keterangan){
             $simpan = mysqli_query($this->koneksi,
-            "INSERT INTO tbl_kk (nokk,id_data,status,keperluan,keterangan) 
+            "INSERT INTO tbl_kk (nokk,id_data,status_surat,keperluan,keterangan) 
             values ('$nokk',
                                         $id_data,
                                         '$status',
@@ -458,6 +490,12 @@
                                         '$keterangan')");
 
             return $simpan;
+        }
+        function hapus_kk($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_kk SET status='dihapus' WHERE id_kk=$id");
+
+	        return $simpan;
         }
         function simpan_suket_untuk_nikah($id_data,$bin_binti,$status,$terdahulu){
             $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_nikah (id_data,bin_binti,status,pasangan_terdahulu) values ($id_data,
@@ -467,6 +505,12 @@
 
             return $simpan;
         }
+        function hapus_suket_untuk_nikah($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_nikah SET status='dihapus' WHERE id_nikah=$id");
+
+	        return $simpan;
+        }
         function simpan_pengunjung($id_data,$bin_binti,$status,$terdahulu){
             $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_nikah (id_data,bin_binti,status,pasangan_terdahulu) values ($id_data,
                                         '$bin_binti',
@@ -474,6 +518,12 @@
                                         '$terdahulu')");
 
             return $simpan;
+        }
+        function hapus_pengunjung($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_akta SET status='dihapus' WHERE id_akta=$id");
+
+	        return $simpan;
         }
         function simpan_suket_pindah_penduduk($id_data,$kepkel,$asal,$tuju,$jml){
             $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_pindah (id_data,
@@ -488,8 +538,20 @@
 
             return $simpan;
         }
+        function hapus_suket_pindah_penduduk($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_pindah SET status='dihapus' WHERE id_pindah=$id");
+
+	        return $simpan;
+        }
         function simpan_skck($nik){
             $simpan = mysqli_query($this->koneksi,"INSERT INTO tbl_skck (id_kk) values ($nik)");
+
+	        return $simpan;
+        }
+        function hapus_skck($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_skck SET status='dihapus' WHERE id_skck=$id");
 
 	        return $simpan;
         }
@@ -497,6 +559,12 @@
             $simpan = mysqli_query($this->koneksi,
             "INSERT INTO tbl_sktm (id_data,keperluan,keterangan) 
             values ($nik,'$keperluan','$keterangan')");
+
+	        return $simpan;
+        }
+        function hapus_sktm($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_sktm SET status='dihapus' WHERE id_sktm=$id");
 
 	        return $simpan;
         }
@@ -514,6 +582,12 @@
 
 	        return $simpan;
         }
+        function hapus_sktm_sekolah($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_sktm_sekolah SET status='dihapus' WHERE id_sktm_sekolah=$id");
+
+	        return $simpan;
+        }
         function simpan_usaha($nik,$alamat_usaha,$jenis_usaha){
             $simpan = mysqli_query($this->koneksi,
             "INSERT INTO tbl_usaha (id_data,alamat_usaha,jenis_usaha) 
@@ -521,6 +595,11 @@
 
 	        return $simpan;
         }
+        function hapus_usaha($id){
+            $simpan = mysqli_query($this->koneksi,
+            "UPDATE tbl_usaha SET status='dihapus' WHERE id_usaha=$id");
 
+	        return $simpan;
+        }
     }
 ?>

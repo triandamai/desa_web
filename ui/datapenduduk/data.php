@@ -1,14 +1,14 @@
 <?php 
         $db = new database();
 
-        if(isset($_POST['nik'])){
-            $nik = $_POST['nik'];
-            $simpan = $db->simpan_skck($nik);
+        if(isset($_POST['hapus'])){
+            $id = $_POST['id'];
+            $simpan = $db->hapus_penduduk($id);
             if($simpan){
-                echo '<script>alert("Berhasil Menambahkan ");</script>';
+                echo '<script>alert("Berhasil Menghapus ");</script>';
                echo '<script> location.replace("'.$base_url_module.'"); </script>';
             }else{
-                echo '<script>alert("Gagal Menambahkan ");</script>';
+                echo '<script>alert("Gagal Menghapus ");</script>';
             }
         }
     
@@ -42,12 +42,13 @@
 	                                            <td><?php echo $data['pekerjaan'] ?></td>
 	                                            <td><?php echo $data['alamat'] ?></td>
                                                 <td>
-                                                <a href="#">
+                                                <a href="<?= $base_url_module .'&&action=ubah&&id='.$data["id_data"]; ?>"  class="btn waves-effect waves-light btn-outline-primary">
                                                     EDIT
                                                     </a>
-                                                    <a href="#">
-                                                    HAPUS
-                                                    </a>
+                                                    <form action="" method="POST">
+                                                        <input type="hidden" name="id" value="<?=  $data['id_data'];?>">
+                                                        <input type="submit" name="hapus"  class="btn waves-effect waves-light btn-outline-primary" value="HAPUS" >
+                                                    </form>
                                                 </td>
                                             </tr>
                                             <?php

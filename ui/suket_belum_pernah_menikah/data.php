@@ -39,9 +39,13 @@
 	                                            <td><?php echo $data['pekerjaan'] ?></td>
 	                                            <td><?php echo $data['alamat'] ?></td>
 	                                            <td>
-                                                <a href="<?= $base_url.'/ui/cetak_belumpernahmenikahsurat.php?module=cetak&&ref=yes&&id='.$data['id_belum_nikah']; ?>">
+                                                <a href="<?= $base_url.'/ui/cetak_belumpernahmenikahsurat.php?module=cetak&&ref=yes&&id='.$data['id_belum_nikah']; ?>"lass="btn waves-effect waves-light btn-outline-primary">
                                                     Cetak
-                                                </a>
+                                                    </a>
+                                                    <form action="" method="POST">
+                                                        <input type="hidden" name="id" value="<?=  $data['id_data'];?>">
+                                                        <input type="submit" name="hapus"  class="btn waves-effect waves-light btn-outline-primary" value="HAPUS" >
+                                                    </form>
                                                 </td>
                                             </tr>
                                             <?php

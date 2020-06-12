@@ -44,13 +44,16 @@
                 </div>
             </div>
             <?php
-                if(!isset($_GET['module']) || $_GET['module'] == ""){
-                    include 'home.php';
-                }else{
+                if(isset($_GET['module']) || $_GET['module'] != "" || $_GET['module'] != null){
+                   
+                  //  echo "ui";
                     $base_url_module = $base_url.'ui/index.php?page='.$_GET['page'].'&&module='.$_GET['module'];
                     $uri = $_GET['module'];
                     
                         include $uri.'/'.$uri.'.php';
+                }else{
+                   
+                    include 'home.php';
                   
                 }?>
         <footer class="footer text-center text-muted"> 
