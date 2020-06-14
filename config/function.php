@@ -331,10 +331,11 @@
 
 	        return $simpan;
         }
-        function simpan_penduduk($nik,$nokk,$nama,$jenis_kelamin,$tgl_lahir,$umur,$tmp_lahir,$alamat,$rt,$rw,$kelurahan,$status_kawin,$pendidikan,$kewarganegaraan,$agama,$pekerjaan,$gol_darah,$akta_lahir,$no_akta,$akta_kawin,$nok_akta_kawin,$akta_cerai,$no_aktacerai,$nama_ayah,$nama_ibu){$simpan = mysqli_query($this->koneksi,
+        function simpan_penduduk($nik,
+        $nokk,$nama,$jenis_kelamin,$tgl_lahir,$umur,$tmp_lahir,$alamat,$rt,$rw,$kelurahan,$status_kawin,$pendidikan,$kewarganegaraan,$agama,$pekerjaan,$gol_darah,$akta_lahir,$no_akta,$akta_kawin,$nok_akta_kawin,$akta_cerai,$no_aktacerai,$nama_ayah,$nama_ibu){$simpan = mysqli_query($this->koneksi,
             "INSERT INTO 
             tbl_data (nik,nkk,nama,jenis_kel,tgl_lahir,umur,tmp_lahir,alamat,no_rt,no_rw,kelurahan,status_kawin,pendidikan,kewarganegaraan,agama,pekerjaan,gol_darah,akta_lahir,no_akta_lahir,akta_kawin,no_akta_kawin,akta_cerai,no_akta_cerai,nama_ayah,nama_ibu) 
-            values ($nik,$nokk,'$nama','$jenis_kelamin','$tgl_lahir',$umur,'$tmp_lahir','$alamat',$rt,$rw,'$kelurahan','$status_kawin','$pendidikan','$kewarganegaraan','$agama','$pekerjaan','$gol_darah','$akta_lahir',$no_akta,'$akta_kawin',$nok_akta_kawin,'$akta_cerai',$no_aktacerai,'$nama_ayah','$nama_ibu')");
+            values ('$nik','$nokk','$nama','$jenis_kelamin','$tgl_lahir',$umur,'$tmp_lahir','$alamat',$rt,$rw,'$kelurahan','$status_kawin','$pendidikan','$kewarganegaraan','$agama','$pekerjaan','$gol_darah','$akta_lahir',$no_akta,'$akta_kawin',$nok_akta_kawin,'$akta_cerai',$no_aktacerai,'$nama_ayah','$nama_ibu')");
 
 	        return $simpan;
         }

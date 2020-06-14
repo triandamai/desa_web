@@ -3,7 +3,7 @@
 
         if(isset($_POST['hapus'])){
             $id = $_POST['id'];
-            $simpan = $db->hapus_keramaian($id);
+            $simpan = $db->hapus_hiburan($id);
             if($simpan){
                 echo '<script>alert("Berhasil Menghapus ");</script>';
                echo '<script> location.replace("'.$base_url_module.'"); </script>';
@@ -53,11 +53,11 @@
 	                                            <td><?php echo $data['pekerjaan'] ?></td>
 	                                            <td><?php echo $data['alamat'] ?></td>
                                                 <td>
-                                                <a href="<?= $base_url.'/ui/cetak_keramaiansurat.php?module=cetak_pengantar_skck&&ref=yes&&id='.$data['id_keramaian']; ?>"lass="btn waves-effect waves-light btn-outline-primary">
+                                                <a href="<?= $base_url.'/ui/cetak_keramaiansurat.php?module=cetak_pengantar_skck&&ref=yes&&id='.$data['id_hiburan']; ?>" class="btn waves-effect waves-light btn-outline-primary">
                                                     Cetak
                                                     </a>
                                                     <form action="" method="POST">
-                                                        <input type="hidden" name="id" value="<?=  $data['id_keramaian'];?>">
+                                                        <input type="hidden" name="id" value="<?=  $data['id_hiburan'];?>">
                                                         <input type="submit" name="hapus"  class="btn waves-effect waves-light btn-outline-primary" value="HAPUS" >
                                                     </form>
                                                 </td>

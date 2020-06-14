@@ -17,7 +17,7 @@ if(!isset($_GET['page']) || $_GET['page'] == ''){
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $base;?>favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $base_url_images;?>logo-icon.png">
     <title><?= $title;?></title>
     <!-- Custom CSS -->
     <link href="<?= $base;?>c3.min.css" rel="stylesheet">

@@ -1,5 +1,6 @@
 
 <?php 
+ 
     include '../config/function.php';
   
    
@@ -8,6 +9,7 @@
         <html dir="ltr" lang="en">
 
     <?php
+    echo $base_url;
     include './css/getcss.php';
     if(isset($_GET['ref'])){
         header("Location:".$_GET['module'].".php?id=".$_GET['id']);
