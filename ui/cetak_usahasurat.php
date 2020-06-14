@@ -37,7 +37,7 @@ foreach($db->tampil_usaha($_GET['id']) as $d) {
 
 <table width=100%>
 <tr>
-    <td align="center"><h3 style='margin-bottom:-5px' align=center><u>SURAT PENGANTAR KETERANGAN CATATAN KEPOLISIAN</u> </h3></td>
+    <td align="center"><h3 style='margin-bottom:-5px' align=center><u>SURAT KETERANGAN USAHA</u> </h3></td>
 </tr> 
 <tr>
     <td align="center"><p>Nomor : 00<?php echo "$d[id_usaha]"; ?>-DS-IX-2019</p></td>

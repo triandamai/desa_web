@@ -123,7 +123,7 @@
             INNER JOIN tbl_data ON tbl_data.id_data = tbl_kehilangan.id_data WHERE tbl_kehilangan.id_kehilangan=$id");
             }else{
                 $data = mysqli_query($this->koneksi,"SELECT * FROM tbl_kehilangan
-            INNER JOIN tbl_data ON tbl_data.id_data = tbl_kehilangan.id_data WHERE status='tersedia'");
+            INNER JOIN tbl_data ON tbl_data.id_data = tbl_kehilangan.id_data WHERE tbl_kehilangan.status='tersedia'");
             }
             
 
@@ -483,7 +483,7 @@
         }
         function simpan_kk($nokk,$id_data,$status,$keperluan,$keterangan){
             $simpan = mysqli_query($this->koneksi,
-            "INSERT INTO tbl_kk (nokk,id_data,status_surat,keperluan,keterangan) 
+            "INSERT INTO tbl_kk (nokk,id_data,status_pengajuan,keperluan,keterangan) 
             values ('$nokk',
                                         $id_data,
                                         '$status',
