@@ -73,7 +73,7 @@ menerangkan dengan sesungguhnya bahwa :  </td>
 <tr>
 <td></td>
 <td>Tempat/ Tanggal Lahir</td>
-<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo $d['tgl_lahir'];?></td>
+<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo $db->tgl_indo($d['tgl_lahir']);?></td>
 </tr>
 <tr>
 <td></td>
@@ -103,7 +103,7 @@ menerangkan dengan sesungguhnya bahwa :  </td>
 <tr>
 <td></td>
 <td>Penghasilan Orang Tua</td>
-<td>: <?php echo "$d[penghasilan_ortu]";?></td>
+<td>: <?php echo "Rp. $d[penghasilan_ortu]";?></td>
 </tr>
 <tr>
 <td></td>

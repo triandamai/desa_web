@@ -4,7 +4,7 @@
         if(isset($_POST['simpan'])){
           
      
-            $simpan = $db->simpan_suket_untuk_nikah($_POST['simpan'],$_POST['bin'],$_POST['status'],$_POST['pasangan']) or die(mysqli_error($db->koneksi));
+            $simpan = $db->simpan_suket_untuk_nikah($_POST['simpan'],$_POST['bin'],'tersedia',$_POST['pasangan']) or die(mysqli_error($db->koneksi));
             
             if($simpan){
                 echo '<script>alert("Berhasil Menambahkan ");</script>';
@@ -39,7 +39,7 @@
                     <td><?php echo $no++ ?></td>
 	                <td><?php echo $data['nama'] ?></td>
 	                <td><?php echo $data['nik'] ?></td>
-	                <td><?php echo $data['id_data'] ?></td>
+	                <td><?php echo $data['pekerjaan'] ?></td>
 	                <td><?php echo $data['alamat'] ?></td>
                     <td>
                        

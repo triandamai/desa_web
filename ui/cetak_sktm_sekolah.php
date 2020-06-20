@@ -52,7 +52,7 @@
 <td align='center'> <?php echo $row['nama_ibu']; ?>  </td>
 <td align='center'> <?php echo $row['alamat_ortu']; ?>  </td>
 <td align='center'> <?php echo $row['pekerjaan_ortu']; ?>  </td>
-<td align='center'> <?php echo $row['penghasilan_ortu']; ?>  </td>
+<td align='center'> <?php echo "Rp. ".$row['penghasilan_ortu']; ?>  </td>
 <td align='center'> <?php echo $row['jumlah_tanggung']; ?>  </td>
 </tr>
 <?php

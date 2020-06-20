@@ -73,7 +73,7 @@ menerangkan bahwa :  </td>
 <tr>
 <td></td>
 <td>Tempat/ Tanggal Lahir</td>
-<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo $d['tgl_lahir'];?></td>
+<td>: <?php echo "$d[tmp_lahir]";?>/ <?php echo $db->tgl_indo($d['tgl_lahir']);?></td>
 </tr>
 <tr>
 <td></td>
@@ -93,12 +93,12 @@ menerangkan bahwa :  </td>
 <tr>
 <td></td>
 <td>Keperluan</td>
-<td>: <?php echo "$d[keperluan]";?></td>
+<td tyle="word-wrap: break-word;">: <?php echo "$d[keperluan]";?></td>
 </tr>
 <tr>
 <td></td>
 <td>Keterangan</td>
-<td>: <?php echo "$d[keterangan]";?></td>
+<td style="word-wrap: break-word;">: <?php echo "$d[keterangan]";?></td>
 </tr>
 <tr>
 <td></td>

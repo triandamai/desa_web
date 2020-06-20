@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jun 2020 pada 14.02
+-- Waktu pembuatan: 20 Jun 2020 pada 15.29
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.2.30
 
@@ -164,7 +164,7 @@ CREATE TABLE `tbl_hajatan` (
   `id_data` int(10) NOT NULL,
   `keperluan` varchar(40) COLLATE latin1_general_ci NOT NULL,
   `keterangan` varchar(50) COLLATE latin1_general_ci NOT NULL,
-  `masa_berlaku` int(11) NOT NULL DEFAULT 1,
+  `masa_berlaku` date NOT NULL DEFAULT current_timestamp(),
   `status` enum('tersedia','selesai','dihapus','batal','kadaluarsa') COLLATE latin1_general_ci NOT NULL DEFAULT 'tersedia'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -173,10 +173,12 @@ CREATE TABLE `tbl_hajatan` (
 --
 
 INSERT INTO `tbl_hajatan` (`id_hajatan`, `id_data`, `keperluan`, `keterangan`, `masa_berlaku`, `status`) VALUES
-(470, 1, 'dfd', 'ds', 1, 'dihapus'),
-(471, 1, 'sd', 'ds', 1, 'tersedia'),
-(472, 1, 'sa', 'sa', 1, 'tersedia'),
-(473, 3, 'afgdf', 'Semakin kecil semakin bagus', 3, 'dihapus');
+(470, 1, 'dfd', 'ds', '0000-00-00', 'dihapus'),
+(471, 1, 'sd', 'ds', '0000-00-00', 'tersedia'),
+(472, 1, 'sa', 'sa', '0000-00-00', 'tersedia'),
+(473, 3, 'afgdf', 'Semakin kecil semakin bagus', '0000-00-00', 'dihapus'),
+(474, 4, 'sas', 'dsd', '0000-00-00', 'tersedia'),
+(475, 3, 'kl', 'kl', '2020-07-03', 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -289,10 +291,9 @@ CREATE TABLE `tbl_nikah` (
 --
 
 INSERT INTO `tbl_nikah` (`id_nikah`, `id_data`, `bin_binti`, `status`, `pasangan_terdahulu`) VALUES
-(1, 1, 'ass', '', 'asa'),
-(2, 1, 'af', '', 'dsf'),
-(3, 1, 'sa', '', 'dsf'),
-(4, 3, 'dsf', 'tersedia', 'sa');
+(4, 3, 'dsf', 'tersedia', 'sa'),
+(6, 3, 'm,', '', 'm'),
+(7, 3, 'm', 'tersedia', 'm');
 
 -- --------------------------------------------------------
 
@@ -579,7 +580,7 @@ ALTER TABLE `tbl_domisili`
 -- AUTO_INCREMENT untuk tabel `tbl_hajatan`
 --
 ALTER TABLE `tbl_hajatan`
-  MODIFY `id_hajatan` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=474;
+  MODIFY `id_hajatan` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=476;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_hiburan`
@@ -609,7 +610,7 @@ ALTER TABLE `tbl_kk`
 -- AUTO_INCREMENT untuk tabel `tbl_nikah`
 --
 ALTER TABLE `tbl_nikah`
-  MODIFY `id_nikah` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_nikah` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pengunjung`

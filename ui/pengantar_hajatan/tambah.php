@@ -42,7 +42,7 @@
                     <td><?php echo $no++ ?></td>
 	                <td><?php echo $data['nama'] ?></td>
 	                <td><?php echo $data['nik'] ?></td>
-	                <td><?php echo $data['id_data'] ?></td>
+	                <td><?php echo $data['pekerjaan'] ?></td>
 	                <td><?php echo $data['alamat'] ?></td>
                     <td>
                        
@@ -93,8 +93,8 @@
                     </div>
                     <div class="form-group">
                         <label for="pasangan">Masa Berlaku</label>
-                        <input class="form-control" name="masaberlaku" type="text" required=""
-                            id="pasangan" value="" placeholder="Masukkan Nama Pasangan">
+                        <input type="date" name="masaberlaku" class="form-control" value="">
+
                     </div>
                     <input class="form-control" name="simpan" value="simpan" type="hidden"
                             required="" placeholder="000xxx">

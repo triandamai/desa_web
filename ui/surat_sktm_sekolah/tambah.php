@@ -6,7 +6,7 @@
             $simpan = $db->simpan_sktm_sekolah(
                 $_POST['nis'],
                 $_POST['simpan'],
-                $_POST['nama_sekolah'],
+                $_POST['namasekolah'],
                 $_POST['alamat_sekolah'],
                 $_POST['alamat_ortu'],
                 $_POST['pekerjaan_ortu'],
@@ -46,7 +46,7 @@
                     <td><?php echo $no++ ?></td>
 	                <td><?php echo $data['nama'] ?></td>
 	                <td><?php echo $data['nik'] ?></td>
-	                <td><?php echo $data['id_data'] ?></td>
+	                <td><?php echo $data['pekerjaan'] ?></td>
 	                <td><?php echo $data['alamat'] ?></td>
                     <td>
                        
@@ -88,6 +88,11 @@
                     <div class="form-group">
                         <label for="status">NIS</label>
                         <input class="form-control" name="nis" type="number" required=""
+                            id="status" value="" placeholder="Masukkan Status">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Nama Sekolah</label>
+                        <input class="form-control" name="namasekolah" type="text" required=""
                             id="status" value="" placeholder="Masukkan Status">
                     </div>
                     <div class="form-group">

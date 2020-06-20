@@ -3,7 +3,7 @@
 
         if(isset($_POST['hapus'])){
             $id = $_POST['id'];
-            $simpan = $db->hapus_penduduk($id);
+            $simpan = $db->hapus_domisili($id);
             if($simpan){
                 echo '<script>alert("Berhasil Menghapus ");</script>';
                echo '<script> location.replace("'.$base_url_module.'"); </script>';
@@ -57,7 +57,7 @@
                                                     Cetak
                                                     </a>
                                                     <form action="" method="POST">
-                                                        <input type="hidden" name="id" value="<?=  $data['id_data'];?>">
+                                                        <input type="hidden" name="id" value="<?=  $data['id_domisili'];?>">
                                                         <input type="submit" name="hapus"  class="btn waves-effect waves-light btn-outline-info" value="HAPUS" >
                                                     </form>
                                                 </td>

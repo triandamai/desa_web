@@ -59,7 +59,7 @@ foreach($db->tampil_suket_belum_menikah($_GET['id']) as $data) {
 <tr>
 <td></td>
 <td>Tempat/ Tanggal Lahir</td>
-<td>: <?php echo "$data[tmp_lahir]";?>/ <?php echo $data['tgl_lahir']?></td>
+<td>: <?php echo "$data[tmp_lahir]";?>/ <?php echo $db->tgl_indo($data['tgl_lahir']);?></td>
 </tr>
 <tr>
 <td></td>
