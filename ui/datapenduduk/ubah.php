@@ -12,7 +12,7 @@
                 $_POST['tgl_lahir'],
                 $_POST['umur'],
                 $_POST['tmp_lahir'],
-                'kosong',
+                'Lumbir Rt '.$_POST['rt'].' Rw '.$_POST['rw'],
                 $_POST['rt'],
                 $_POST['rw'],
                 'kosong',

@@ -17,6 +17,8 @@
                                 <h4 class="card-title">Data Penduduk </h4>
                                 <a href="<?= $base_url_module;?>&&action=tambah" type="button"
                                         class="btn waves-effect waves-light btn-outline-primary">TAMBAH</a>
+                                <a href="<?= $base_url_module;?>&&action=import" type="button"
+                                        class="btn waves-effect waves-light btn-outline-primary">IMPORT</a>
                                 <div class="table-responsive">
                                     <table id="multi_col_order"
                                         class="table table-striped table-bordered display no-wrap" style="width:100%">

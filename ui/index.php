@@ -2,6 +2,7 @@
 <?php 
  
     include '../config/function.php';
+    include '../vendor/autoload.php';
   
    
     ?>
