@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jun 2020 pada 15.29
+-- Waktu pembuatan: 02 Jul 2020 pada 04.33
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.2.30
 
@@ -97,7 +97,7 @@ CREATE TABLE `tbl_data` (
   `nkk` varchar(26) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `jenis_kel` varchar(10) NOT NULL,
-  `tgl_lahir` date NOT NULL,
+  `tgl_lahir` varchar(255) NOT NULL,
   `umur` int(3) NOT NULL,
   `tmp_lahir` varchar(60) NOT NULL,
   `alamat` varchar(60) NOT NULL,
@@ -131,7 +131,13 @@ INSERT INTO `tbl_data` (`id_data`, `nik`, `nkk`, `nama`, `jenis_kel`, `tgl_lahir
 (3, '12345678', '8907988', 'Alucard', 'Laki-laki', '2020-01-01', 18, 'Ajibarang', 'kosong', 5, 8, 'kosong', '', 'Sudah-Kawin', 'SD', 'WNI', 'kristen', 'Karyawan Perusahaan', 'AB', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'ayah', 'buib', 'tersedia'),
 (4, '2147483647', '2147483647', 'Trian Damai', 'LAKI-LAKI', '1998-09-16', 21, 'Purbalingga', 'kosong', 4, 4, 'kosong', 'kosong', 'BELUM-KAWIN', 'SLTA', 'WNI', 'ISLAM', 'PELAJAR', 'A', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'ayah', 'buib', 'tersedia'),
 (5, '2147483647', '2147483647', 'Trian', 'LAKI-LAKI', '1998-09-16', 21, 'Purbalingga', 'kosong', 4, 3, 'kosong', 'kosong', 'KAWIN', 'SARJANA', 'WNI', 'ISLAM', 'KARYAWAN', 'O', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'ayah', 'buib', 'tersedia'),
-(6, '3302154304020006', '3302154304020007', 'Trian', 'LAKI-LAKI', '1998-09-16', 21, 'Purbalingga', 'Lumbir Rt 4 Rw 5', 4, 5, 'kosong', 'kosong', 'KAWIN', 'SARJANA', 'WNI', 'ISLAM', 'WIRASWASTA', 'AB', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'ayah', 'buib', 'tersedia');
+(6, '3302154304020006', '3302154304020007', 'Trian', 'LAKI-LAKI', '1998-09-16', 21, 'Purbalingga', 'Lumbir Rt 4 Rw 5', 4, 5, 'kosong', 'kosong', 'KAWIN', 'SARJANA', 'WNI', 'ISLAM', 'WIRASWASTA', 'AB', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'ayah', 'buib', 'tersedia'),
+(9, '123456', '123456646', 'coba', 'LAKI-LAKI', '2020-06-09', 21, 'pwt', 'Lumbir Rt 4 Rw 5', 4, 5, 'kosong', 'kosong', 'Belum KAwin', 'S1', 'WNI', 'ISLAM', 'Karyawan', 'O', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'Ayah', 'IBu', 'tersedia'),
+(17, '45678954', '5467853', 'dada', 'PEREMPUAN', '2020-07-03', 34, 'Purbalingga', 'Lumbir Rt 4 Rw 7', 4, 7, 'kosong', 'kosong', 'BELUM-KAWIN', 'SD', 'WNA', 'ISLAM', 'WIRASWASTA', 'B', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'y', 'y', 'tersedia'),
+(18, '123456', '123456646', 'coba', 'LAKI-LAKI', '16-10-2020', 21, 'pwt', 'Lumbir Rt 4 Rw 5', 4, 5, 'kosong', 'kosong', 'Belum KAwin', 'S1', 'WNI', 'ISLAM', 'Karyawan', 'O', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'Ayah', 'IBu', 'tersedia'),
+(19, '56352463', '5345t7347', 'cobaan', 'PEREMPUAN', '17-10-2020', 21, 'pwt', 'Lumbir Rt 4 Rw 5', 4, 5, 'kosong', 'kosong', 'Belum KAwin', 'S1', 'WNI', 'ISLAM', 'Karyawan', 'O', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'Ayah', 'IBu', 'tersedia'),
+(20, '123456', '123456646', 'coba', 'LAKI-LAKI', '16-10-2020', 21, 'pwt', 'Lumbir Rt 4 Rw 5', 4, 5, 'kosong', 'kosong', 'Belum KAwin', 'S1', 'WNI', 'ISLAM', 'Karyawan', 'O', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'Ayah', 'IBu', 'tersedia'),
+(21, '56352463', '5345t7347', 'cobaan', 'PEREMPUAN', '17-10-2020', 21, 'pwt', 'Lumbir Rt 4 Rw 5', 4, 5, 'kosong', 'kosong', 'Belum KAwin', 'S1', 'WNI', 'ISLAM', 'Karyawan', 'O', 'kosong', 0, 'kosong', 0, 'kosong', 0, 'Ayah', 'IBu', 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -164,21 +170,9 @@ CREATE TABLE `tbl_hajatan` (
   `id_data` int(10) NOT NULL,
   `keperluan` varchar(40) COLLATE latin1_general_ci NOT NULL,
   `keterangan` varchar(50) COLLATE latin1_general_ci NOT NULL,
-  `masa_berlaku` date NOT NULL DEFAULT current_timestamp(),
+  `masa_berlaku` date NOT NULL,
   `status` enum('tersedia','selesai','dihapus','batal','kadaluarsa') COLLATE latin1_general_ci NOT NULL DEFAULT 'tersedia'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Dumping data untuk tabel `tbl_hajatan`
---
-
-INSERT INTO `tbl_hajatan` (`id_hajatan`, `id_data`, `keperluan`, `keterangan`, `masa_berlaku`, `status`) VALUES
-(470, 1, 'dfd', 'ds', '0000-00-00', 'dihapus'),
-(471, 1, 'sd', 'ds', '0000-00-00', 'tersedia'),
-(472, 1, 'sa', 'sa', '0000-00-00', 'tersedia'),
-(473, 3, 'afgdf', 'Semakin kecil semakin bagus', '0000-00-00', 'dihapus'),
-(474, 4, 'sas', 'dsd', '0000-00-00', 'tersedia'),
-(475, 3, 'kl', 'kl', '2020-07-03', 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -365,7 +359,10 @@ CREATE TABLE `tbl_skck` (
 INSERT INTO `tbl_skck` (`id_skck`, `id_kk`, `status`) VALUES
 (271, 1, 'tersedia'),
 (272, 1, 'dihapus'),
-(273, 1, 'dihapus');
+(273, 1, 'dihapus'),
+(274, 14, 'tersedia'),
+(275, 19, 'tersedia'),
+(276, 21, 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -568,7 +565,7 @@ ALTER TABLE `tbl_belum_nikah`
 -- AUTO_INCREMENT untuk tabel `tbl_data`
 --
 ALTER TABLE `tbl_data`
-  MODIFY `id_data` int(26) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_data` int(26) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_domisili`
@@ -628,7 +625,7 @@ ALTER TABLE `tbl_pindah`
 -- AUTO_INCREMENT untuk tabel `tbl_skck`
 --
 ALTER TABLE `tbl_skck`
-  MODIFY `id_skck` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=274;
+  MODIFY `id_skck` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_sktm`
