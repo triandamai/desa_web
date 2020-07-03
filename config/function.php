@@ -623,7 +623,7 @@
             // variabel pecahkan 1 = bulan
             // variabel pecahkan 2 = tanggal
         
-            return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+            return $pecahkan[0] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[2];
         }
     }
 
